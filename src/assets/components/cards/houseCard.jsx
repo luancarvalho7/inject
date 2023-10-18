@@ -1,5 +1,7 @@
 import './selectCard.css'
 import bullsbet from '../../images/bullsbet.png'
+import { Stats } from '../stats/stats'
+
 
 
 export function HouseCard() {
@@ -8,7 +10,7 @@ export function HouseCard() {
             <div className="sc-content">
                 <img src={bullsbet}  className="image"/>
                 <div className="houseData">
-
+                    <Stats/>
                 </div>
             </div>
 
