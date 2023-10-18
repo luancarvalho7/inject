@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import data from './assets/data/data.json';
 import suppliersData from './assets/data/suppliers.json';
-import { House } from './assets/components/house.jsx';
 import seedrandom from 'seedrandom';
+import { HouseCard } from './assets/components/cards/houseCard.jsx';
 
 
 
@@ -114,19 +114,9 @@ function App() {
 
   return (
     <>
-     {/*  {housesData.map((houseData, index) => (
-        <House
-          key={index}
-          initialData={houseData}
-        />
-      ))}
-      {housesData.map((houseData, index) => (
-        <div key={index}>
-          <h1>{`Casino: ${houseData.casino}`}</h1>
-          <h1>{`Players: ${(houseData.players / 1000000).toFixed(1)}M`}</h1>
-          <h1>{`Revenue: ${(houseData.revenue / 1000000).toFixed(1)}M`}</h1>
-        </div>
-      ))} */}
+     {
+      <HouseCard/>
+     }
     </>
   );
 }
