@@ -5,14 +5,12 @@ import { ProgressBar } from "./gameProgress";
 
 export function GameCard({ data }) {
 
+    const gamePercentage = (data.revenuePercentage*3).toFixed(0)
     const gameImg = data.image
     const gameRev = formatBigNumber(data.revenue)
-    const gamePay = formatBigNumber(data.revenue * 2)
+    const gamePay = formatBigNumber(data.revenue * 0.2)
 
-    useEffect(() => {
-
-        console.log(data)
-    })
+ 
 
 
     function formatBigNumber(number) {
@@ -33,14 +31,14 @@ export function GameCard({ data }) {
             <div className="houseData gms-houseD">
                 <Stats
                     title={'Pagamento'}
-                    value={`R$ ${gameRev}`}
+                    value={`R$ ${gamePay}`}
                 />
                 <Stats
                     title={'Faturamento'}
-                    value={`R$ ${gamePay}`}
+                    value={`R$ ${gameRev}`}
                 />
             </div>
-            <ProgressBar valorVariavel={50}/>
+            <ProgressBar valorVariavel={gamePercentage}/>
         </div>
     </div>)
 }

@@ -9,9 +9,9 @@ export function ProgressBar({ valorVariavel }) {
     }, [valorVariavel]);
 
     return (
-        <div className="progress-bar">
-            <div className="progress-value"><p>{valorVariavel+'%'}</p></div>
-            <div className="progress-fill" ref={progressBarRef}></div>
+        <div className="gprogress-bar">
+            <div className="gprogress-value"><p>{valorVariavel+'%'}</p></div>
+            <div className="gprogress-fill" ref={progressBarRef}></div>
         </div>
     );
 };

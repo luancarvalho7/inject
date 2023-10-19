@@ -28,7 +28,10 @@ function App() {
   }
 
   function distributeToSuppliers(houseData, suppliersData) {
-    const totalWeight = suppliersData.reduce((acc, supplier) => acc + supplier.weight, 0);
+
+/*     console.log(houseData)
+ */   const filtered = suppliersData.filter((x)=>{if(houseData.suppliers.includes(x.name)){return x}})
+    const totalWeight = filtered.reduce((acc, supplier) => acc + supplier.weight, 0);
     return suppliersData.map((supplier) => {
 
 
@@ -132,9 +135,18 @@ function App() {
     setHousesData(newHousesData);
   }, []);
 
+  function amin(){
+    console.log(housesData)
+  }
+
   return (
     <>
-      {loaded ? <GameCard data={housesData[0].suppliers[1].games[0]} /> : ''}
+    <button onClick={amin}>xxx</button>
+      {loaded ? <GameCard data={housesData[0].suppliers[1].games[0]} /> : ''
+      
+      
+      
+      }
 
       <SupplierCard data={housesData[0].suppliers[1]} />
 
@@ -143,9 +155,10 @@ function App() {
 
       <HouseCard
         data={housesData[0]} />
+      {loaded ? <MinesGame data={housesData[0].suppliers[1].games[0]}/> : ''}
 
 
-      <MinesGame />
+      
     </>
   );
 }

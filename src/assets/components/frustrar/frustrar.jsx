@@ -5,13 +5,42 @@ import logo from '../../images/logo.png'
 
 import { Stats } from "../stats/stats";
 
-export function MinesGame() {
+export function MinesGame({data}) {
+
+    function formatBigNumber(number) {
+        if (number >= 1e6) {
+            return (number / 1e6).toFixed(1) + 'M';
+        } else if (number >= 1e3) {
+            return (number / 1e3).toFixed(0) + 'K';
+        } else {
+            return number;
+        }}
+
+
+    const gamePercentage = (data.revenuePercentage*3).toFixed(0)
+    const gameRev = formatBigNumber(data.revenue)
+    const gamePay = formatBigNumber(data.revenue * 0.2)
+
+
+  
+
+    useEffect(() => {
+
+        console.log(data)
+
+        setValorVariavel(gamePercentage)
+    })
+
+
+    // codigo pra aumentar a % 
+
     const [valorVariavel, setValorVariavel] = useState(50);
     const progressBarRef = useRef(null);
     const percentageValueRef = useRef(null);
 
+
     useEffect(() => {
-        const largura = `${valorVariavel}%`;
+        const largura = `${valorVariavel * 1.5}%`;
         progressBarRef.current.style.width = largura;
         percentageValueRef.current.textContent = `${valorVariavel}%`;
     }, [valorVariavel]);
@@ -34,8 +63,14 @@ export function MinesGame() {
                     <p className="game-info">O sistema da SPRIBE irá te identificar como um jogador “frustrado” da BullsBet e vai fazer com que suas chances de ganhar aumentem</p>
                 
                     <div className="game-pay-reve">
-                        <Stats title={'Faturamento'} value={'R$100'}/>
-                        <Stats title={'Pagamento'} value={'R$20'}/>
+                    <Stats
+                    title={'Pagamento'}
+                    value={`R$ ${gamePay}`}
+                />
+                <Stats
+                    title={'Faturamento'}
+                    value={`R$ ${gameRev}`}
+                />
                     </div>
                 </div>
                 <button className="frustrate-button">Frustrar Conta</button>
