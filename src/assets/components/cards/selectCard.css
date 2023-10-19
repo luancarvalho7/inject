@@ -1,14 +1,18 @@
-.selectCard{
+.selectCard {
     display: flex;
-    background: var(--linear, linear-gradient(147deg, #3865D1 21.16%, rgba(56, 101, 209, 0.00) 81.34%));    width: 290px;
+    background: var(--linear, linear-gradient(147deg, #3865D1 21.16%, rgba(56, 101, 209, 0.00) 81.34%));
+    width: 290px;
     height: 180px;
 
     padding: 2px;
     border-radius: 16px;
-
+    overflow: hidden;
     border-radius: 16px;
+    position: relative;
+
 }
-.sc-content{
+
+.sc-content {
     width: 100%;
     height: 100%;
 
@@ -22,21 +26,110 @@
     padding: 12px 14px 18px;
     border-radius: 16px;
 
-    background: linear-gradient(180deg, rgba(0, 80, 137, 0.05) 47%, rgba(59, 103, 211, 0.10) 100%), #020817; 
+    background: linear-gradient(180deg, rgba(0, 80, 137, 0.05) 47%, rgba(59, 103, 211, 0.10) 100%), #020817;
 
 }
-.houseData{
+
+.houseData {
     width: 100%;
     height: 52px;
+
+    display: flex;
+    justify-content: space-between;
 }
 
-.image{
+.image {
     height: 85px;
     mix-blend-mode: screen;
     user-select: none;
 }
 
 
-body{
+/* Supplier */
+
+
+.supplierCard {
+    width: 200px;
+}
+
+.supp-houseD {
+
+    justify-content: space-around;
+}
+
+
+/* Games */
+
+.gameCard-stroke{
+    background: #181F2E;
+    height: 250px;
+}
+.gameCard-ui{
+    background: #0E1524
+}
+.gms-houseD {
+    z-index: 2;
+    position: absolute;
+    top: 152px;
+    justify-content: space-around;
+}
+
+.gameImage {
+    position: absolute;
+    object-fit: cover;
+    width: 290px;
+    height: 180px;
+    top: -18px;
+
+    
+}
+
+.imgfade {
+    z-index: 1;
+    width: 290px;
+    height: 210px;
+    position: absolute;
+    top: -20px;
+    background: linear-gradient(0deg, #0E1524 16.85%, rgba(14, 21, 36, 0.00) 46.63%);
+}
+
+
+.progress-bar {
+    width: 99%;
+    border-radius: 15px;
+    border: 1px solid #00FE38;
+    background: #0D1423;
+    box-shadow: 0px 4px 250px 0px #000;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+}
+.progress-fill {
+    border-radius: 15px;
+    background: linear-gradient(90deg, rgba(2, 255, 58, 0.75) 2.76%, #70FF8F 65.29%, #0D1423 75.27%);
+    height: 100%;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-value{
+    position: absolute;
+    padding: 2px 9px;
+    width: fit-content;
+    height: fit-content;
+    background-color: #0D1423;
+    color: #01F037;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 999px;
+
+}
+
+body {
     background-color: #000511;
 }

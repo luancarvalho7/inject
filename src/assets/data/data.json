@@ -3,13 +3,13 @@
       "casino": "BullsBet",
       "players": 900000,
       "revenue": 3420000,
-      "suppliers": ["PG Soft"]
+      "suppliers": ["PG Soft", "Spribe"]
     },
     {
       "casino": "PlayPix",
       "players": 12600000,
       "revenue": 48500000,
-      "suppliers": ["PG Soft"]
+      "suppliers": ["Spribe"]
     }
   ]
   

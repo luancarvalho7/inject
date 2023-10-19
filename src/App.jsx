@@ -3,10 +3,14 @@ import data from './assets/data/data.json';
 import suppliersData from './assets/data/suppliers.json';
 import seedrandom from 'seedrandom';
 import { HouseCard } from './assets/components/cards/houseCard.jsx';
+import { SupplierCard } from './assets/components/cards/supplierCard';
+import { GameCard } from './assets/components/cards/gameCard';
 
 
 
 function App() {
+
+  const [loaded, setLoaded] = useState(false)
   const [housesData, setHousesData] = useState(data);
 
 
@@ -27,14 +31,27 @@ function App() {
     const totalWeight = suppliersData.reduce((acc, supplier) => acc + supplier.weight, 0);
     return suppliersData.map((supplier) => {
 
-      const portion = supplier.weight / totalWeight;
 
-      return {
-        name: supplier.name,
-        players: Math.floor(houseData.players * portion),
-        revenue: Math.floor(houseData.revenue * portion),
-      };
+
+      const xx = houseData.suppliers.includes(supplier.name.toString())
+
+      if (xx) {
+        const portion = supplier.weight / totalWeight;
+
+        return {
+          name: supplier.name,
+          players: Math.floor(houseData.players * portion),
+          revenue: Math.floor(houseData.revenue * portion),
+          payment: Math.floor((houseData.revenue * portion) * 0.2)
+        };
+
+      }
+
+
+
+
     });
+
   }
 
 
@@ -76,13 +93,15 @@ function App() {
 
       }
 
+      setLoaded(true)
+
       return {
         name: game.name,
         image: game.image,
         players: playersForGame,
         revenue: revenueForGame,
         revenuePercentage: revenuePercentage.toFixed(2),
-        finalPercentage: finalPercentage.toFixed(2) 
+        finalPercentage: finalPercentage.toFixed(2)
       };
     });
 
@@ -93,7 +112,8 @@ function App() {
   useEffect(() => {
     const newHousesData = housesData.map((houseData, index) => {
       const { players, revenue } = randomizeHouseData(houseData);
-      const houseSuppliers = distributeToSuppliers({ players, revenue }, suppliersData);
+/*       console.log(houseData)
+ */      const houseSuppliers = distributeToSuppliers(houseData, suppliersData).filter(item => item !== undefined);
       houseSuppliers.forEach((supplier, i) => {
         const gamesData = suppliersData.find((s) => s.name === supplier.name).games;
         houseSuppliers[i] = {
@@ -101,6 +121,7 @@ function App() {
           games: distributeToGames(supplier, gamesData),
         };
       });
+
       return {
         ...houseData,
         players,
@@ -109,14 +130,16 @@ function App() {
       };
     });
     setHousesData(newHousesData);
-    console.log(newHousesData[0].suppliers);
   }, []);
 
   return (
     <>
-     {
-      <HouseCard/>
-     }
+      {loaded ? <GameCard data={housesData[0].suppliers[1].games[0]} /> : ''}
+
+      <SupplierCard data={housesData[0].suppliers[0]} />
+      <HouseCard
+        data={housesData[0]} />
+
     </>
   );
 }
