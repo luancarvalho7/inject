@@ -5,7 +5,7 @@ import seedrandom from 'seedrandom';
 import { HouseCard } from './assets/components/cards/houseCard.jsx';
 import { SupplierCard } from './assets/components/cards/supplierCard';
 import { GameCard } from './assets/components/cards/gameCard';
-
+import { MinesGame } from './assets/components/frustrar/frustrar';
 
 
 function App() {
@@ -136,10 +136,16 @@ function App() {
     <>
       {loaded ? <GameCard data={housesData[0].suppliers[1].games[0]} /> : ''}
 
+      <SupplierCard data={housesData[0].suppliers[1]} />
+
       <SupplierCard data={housesData[0].suppliers[0]} />
+
+
       <HouseCard
         data={housesData[0]} />
 
+
+      <MinesGame />
     </>
   );
 }

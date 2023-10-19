@@ -1,0 +1,70 @@
+body{
+    background: #000511;
+}
+.box{
+    padding: 50px;
+    margin: 25px;
+}
+.game-title{
+    color: #FFF;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+.game-info{
+    color: #B4BCD0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 15.5px;
+}
+.frustrate-button{
+    width: 100%;
+    height: 42px;
+    border-radius: 99px;
+    background: radial-gradient(70.71% 70.71% at 50% 50%, #2558D3 29%, #1944AC 100%);
+    box-shadow: -1px -1px 2px 0px #19367C inset, 1px 1px 0px 0px rgba(192, 193, 224, 0.20) inset, 0px 12px 50px 0px rgba(71, 113, 217, 0.44);
+    font-size: 20px;
+    color: white;
+    font-weight: bold; 
+}
+.progress-bar {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid #00FE38;
+    background: #000511;
+    box-shadow: 0px 4px 250px 0px #000;
+    height: 20px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+.progress-fill {
+    border-radius: 15px;
+    background: linear-gradient(90deg, rgba(2, 255, 58, 0.75) 2.76%, #70FF8F 65.29%, rgba(0, 80, 18, 0.00) 75.27%);
+    height: 100%;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+.percentage-indicator {
+    width: 57px;
+    background: #0D1423;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 99px;
+    transform: translate(6px, 2px);
+}
+
+.game-info-container{
+    display: flex;
+}
+#percentageValue {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translate(-10px, -20px);
+    font-size: 13px;
+    color: #00FE38;
+}
