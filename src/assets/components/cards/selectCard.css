@@ -106,7 +106,7 @@
 .gameCard-stroke{
     background: #181F2E;
     height: 250px;
-    width: 180px;
+    width: 194px;
 }
 .gameCard-ui{
     background: #0E1524
@@ -121,7 +121,7 @@
 .gameImage {
     position: absolute;
     object-fit: cover;
-    width: 178px;
+    width: 194px;
     height: 180px;
     top: -18px;
 
@@ -130,7 +130,7 @@
 
 .imgfade {
     z-index: 1;
-    width: 180px;
+    width: 194px;
     height: 210px;
     position: absolute;
     top: -20px;

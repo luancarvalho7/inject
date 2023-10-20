@@ -1,6 +1,7 @@
 .miniSectionTitle {
     display: flex;
     gap: 6px;
+    padding: 25px 25px 12px 15px;
 }
 
 .miniSectionTitle p {
@@ -16,4 +17,26 @@
     font-weight: 500;
 }
 
+.vip-container-home{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    padding: 25px 11px 25px 10px;
+}
 
+.swiper-wrapper{
+    padding-left: 12px;
+}
+
+.DisposableGames{
+    padding: 25px 0px 10px 0px;
+    color: #FFFFFF;
+}
+
+/* para celular de pobre */
+@media (max-width: 393px) {
+    .SwiperHouse .swiper-slide{
+        margin-right: 54.429px !important;
+    }
+}

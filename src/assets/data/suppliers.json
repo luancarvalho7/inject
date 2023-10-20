@@ -2,6 +2,7 @@
     {
       "name": "PG Soft",
       "weight": 3,
+      "image": "https://slotegrator.pro/uploads/content/orig/pocket-games-soft-llogo-color-2717469807.png",
       "games": [
         {
             "name": "Fortune Tiger",
@@ -32,6 +33,7 @@
       },{
         "name": "Spribe",
         "weight": 2,
+        "image": "https://i.imgur.com/zf5upLp.png",
         "games": [{
             "name": "Mines",
             "image": "https://d1fojj4wte942r.cloudfront.net/e-games/mines_spribe_original_desktop_mobile_icon_1693439512454.gif",
@@ -76,6 +78,7 @@
     },{
         "name": "pragmaticplay",
         "weight": 2,
+        "image": "https://seeklogo.com/images/P/pragmatic-play-logo-C41E3B3527-seeklogo.com.png",
         "games": [
         {
             "name": "Spaceman",
@@ -130,6 +133,7 @@
     ]},
     {"name": "netgaming",
     "weight": 2,
+    "image": "https://i.imgur.com/XD0uCqA.png",
     "games": [
         {
             "name": "Master of Fortune",
@@ -177,6 +181,7 @@
     {
         "name":"Evoplay",
         "weight": 1,
+        "image": "https://149813013.v2.pressablecdn.com/wp-content/uploads/EvoplayEntertainment_Logo.png",
         "games":[{
             "name": "Penalty Shoot Out",
             "image": "https://d1fojj4wte942r.cloudfront.net/e-games/5643_evoplay_desktop_mobile_icon_1669150416229.webp",

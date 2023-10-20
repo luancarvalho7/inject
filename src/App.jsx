@@ -139,15 +139,11 @@ function App() {
     setHousesData(newHousesData);
   }, []);
 
-  function amin(){
-    console.log(housesData)
-  }
-
   return (
     <>
-    
-    <button onClick={amin}>xxx</button>
-    {loaded ? <Home data={housesData} /> : ''}
+    <div className='home-container'>
+      {loaded ? <Home data={housesData} /> : ''}
+    </div>
      {/*  
 
       <SupplierCard data={housesData[0].suppliers[1]} />

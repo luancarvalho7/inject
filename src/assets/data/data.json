@@ -3,15 +3,15 @@
       "casino": "BullsBet",
       "players": 900000,
       "revenue": 3420000,
-      "suppliers": ["PG Soft", "Spribe"],
+      "suppliers": ["PG Soft", "Spribe", "pragmaticplay", "netgaming", "Evoplay"],
       "image": "https://bullspartners.com/wp-content/uploads/2023/09/Bullsbet-PNG-LOGO-scaled-e1695248496183-1024x322.webp"
     },
     {
       "casino": "PlayPix",
       "players": 12600000,
       "revenue": 48500000,
-      "suppliers": ["PG Soft", "Spribe"],
-      "image": "https://faq.playpix.com/wp-content/uploads/2023/02/Logo-Icon-White-Text.png"
+      "suppliers": ["PG Soft", "Spribe","pragmaticplay"],
+      "image": "https://bonus-playpix.com/wp-content/uploads/2022/11/Copia_de_DESAFIO-removebg-preview.png"
     },
     {
       "casino": "RealsBet",

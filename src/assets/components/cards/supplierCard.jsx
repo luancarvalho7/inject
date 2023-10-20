@@ -1,11 +1,10 @@
 
 import './selectCard.css'
-import spribe from '../../images/spribe.png'
 import { Stats } from '../stats/stats'
 import { useState, useEffect } from 'react';
 export function SupplierCard({data}) {
 
-    const [Spribe, setSpribe] = useState(false)
+    const [PG, setPG] = useState(false)
     function formatBigNumber(number) {
         if (number >= 1e6) {
             return (number / 1e6).toFixed(1) + 'M';
@@ -16,14 +15,14 @@ export function SupplierCard({data}) {
         }
     }
 
-    useEffect(() => {if (data.name == "Spribe"){
-        setSpribe(true)
+    useEffect(() => {if (data.name == "PG Soft"){
+        setPG(true)
     }}, [])
 
     return (
-        <div className={Spribe ? "supplierCard selectCardBlocked card-enabled" : "supplierCard selectCard card-enabled"}>
-            <div className={Spribe ? "sc-content-blocked" : "sc-content"}>
-                <img src={spribe} className="image" />
+        <div className={PG ? "supplierCard selectCard card-enabled" : "supplierCard selectCardBlocked card-enabled"}>
+            <div className={PG ? "sc-content" : "sc-content-blocked"}>
+                <img src={data.image} className="image" />
                 <div className="houseData supp-houseD">
 
                     <Stats title={'Pagamento'} value={`R$ ${formatBigNumber(data.payment)}`}/>

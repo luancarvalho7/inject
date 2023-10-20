@@ -21,7 +21,7 @@ export function Home({ data }) {
 
     return <>
 
-        <div className="vip-container">
+        <div className="vip-container-home">
             <img src={logo} />
             <button className="vip-button">Acesso VIP <img src={arrow} /></button>
         </div>
@@ -31,8 +31,8 @@ export function Home({ data }) {
             <Swiper
                 slidesPerView={1.4}
                 centeredSlides={false}
-                spaceBetween={30}
-                className="mySwiper"
+                spaceBetween={29.429}
+                className="SwiperHouse"
             >
                 {data.map((current, index) =>
                     <SwiperSlide key={index}>
@@ -42,13 +42,13 @@ export function Home({ data }) {
             </Swiper>
         }
         {/* Escolha o seu Fornecedor */}
-        <div className="miniSectionTitle"><img src={chooseSupplier} /><p className='mainText'>Escolha Escolha o Fornecedor</p></div>
+        <div className="miniSectionTitle"><img src={chooseSupplier} /><p className='mainText'> Escolha o Fornecedor</p></div>
         {
             <Swiper
                 slidesPerView={1.85}
                 centeredSlides={false}
                 spaceBetween={30}
-                className="mySwiper"
+                className="SwiperSupplier"
             >
                 {data[0].suppliers.map((current, index) =>
                     <SwiperSlide key={index}>
@@ -59,7 +59,7 @@ export function Home({ data }) {
         }
         {/* Jogos Disponíveis */}
         <div id="enabledGames">
-            <h1 className='mainText'> Jogos Disponíveis </h1>
+            <h1 className='DisposableGames'> Jogos Disponíveis </h1>
 
 
             {
@@ -67,7 +67,7 @@ export function Home({ data }) {
                     slidesPerView={2}
                     centeredSlides={false}
                     spaceBetween={30}
-                    className="mySwiper"
+                    className="SwiperGames"
                 >{
                         data[0].suppliers[0].games.map((current, index) =>
                             <SwiperSlide key={index}>
