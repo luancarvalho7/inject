@@ -16,9 +16,9 @@ export function HouseCard({ data }) {
     }
 
     return (
-        <> <div className="houseCard selectCard card-enabled" >
-            <div className="sc-content">
-                <img src={bullsbet} className="image" />
+        <> <div className="houseCard selectCardBlocked card-enabled" >
+            <div className="sc-content-blocked">
+                <img src={bullsbet} className="image-blocked" />
                 <div className="houseData">
                     <Stats
                         title={'Pagamento'}

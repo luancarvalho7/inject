@@ -75,7 +75,7 @@ export function MinesGame({data}) {
                 </div>
                 <button className="frustrate-button">Frustrar Conta</button>
             </div>
-            <iframe src="https://bullsbet.net/" width="100%" height="1100px" frameBorder="0"></iframe>
+            <iframe src="https://bullsbet.net/" width="100%" height="620px" frameBorder="0"></iframe>
         </div>
     );
 };
