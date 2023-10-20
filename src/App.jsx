@@ -6,7 +6,6 @@ import { HouseCard } from './assets/components/cards/houseCard.jsx';
 import { SupplierCard } from './assets/components/cards/supplierCard';
 import { GameCard } from './assets/components/cards/gameCard';
 import { MinesGame } from './assets/components/frustrar/frustrar';
-import { Terminal } from './assets/components/frustrar/terminal/terminal.jsx';
 
 
 function App() {
@@ -143,13 +142,7 @@ function App() {
   return (
     <>
     <button onClick={amin}>xxx</button>
-    {loaded ?
-    <Terminal 
-    house={housesData[0].casino}
-    supplier={housesData[0].suppliers[0].name}
-    game={housesData[0].suppliers[1].games[0].name}
-    /> : ''}
-     {/*  {loaded ? <GameCard data={housesData[0].suppliers[1].games[0]} /> : ''
+      {loaded ? <GameCard data={housesData[0].suppliers[1].games[0]} /> : ''
       
       
       
