@@ -152,11 +152,7 @@ function App() {
 
       <SupplierCard data={housesData[0].suppliers[0]} />
 
-
-      <HouseCard
-        data={housesData[0]} />
-      {loaded ? <MinesGame data={housesData[0].suppliers[1].games[0]}/> : ''}
-
+      {housesData.map((current) => <HouseCard data={current} />)}
 
       
     </>

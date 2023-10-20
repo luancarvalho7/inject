@@ -24,7 +24,13 @@ export function GameCard({ data }) {
 
         
     }
-    return (<div className="gameCard-stroke selectCard card-enabled">
+
+    const handleCardClick = () => {
+        window.location.href = 'frustrar'; 
+    };
+
+
+    return (<div className="gameCard-stroke selectCard card-enabled" onClick={handleCardClick}>
         <div className="gameCard-ui sc-content">
             <div className="imgfade"></div>
             <img src={gameImg} className="gameImage" />
