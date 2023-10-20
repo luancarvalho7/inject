@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
-export function ProgressBar({ valorVariavel }) {
+export function ProgressBar({ valorVariavel, quality }) {
+
     const progressBarRef = useRef(null);
 
     useEffect(() => {
@@ -9,9 +10,9 @@ export function ProgressBar({ valorVariavel }) {
     }, [valorVariavel]);
 
     return (
-        <div className="gprogress-bar">
-            <div className="gprogress-value"><p>{valorVariavel+'%'}</p></div>
-            <div className="gprogress-fill" ref={progressBarRef}></div>
+        <div className={`gprogress-bar pg-${quality}`}>
+            <div className={`gprogress-value pgv-${quality}`}><p>{valorVariavel+'%'}</p></div>
+            <div className={`gprogress-fill pgf-${quality}`} ref={progressBarRef}></div>
         </div>
     );
 };

@@ -177,6 +177,30 @@
 
 }
 
+.pg-normal {
+    border: 1px solid #57AEFF;
+}
+.pgv-normal {
+    color: #57AEFF;
+}
+.pgf-normal {
+    background: linear-gradient(90deg, rgba(87, 174, 255, 0.75) 2.76% ,  #57AEFF 65.29% , #0D1423 75.27%);
+}
+
+
+
+
+.pg-bad{
+    border: 1px solid red;
+}
+.pgv-bad {
+    color: red;
+}
+.pgf-bad{
+    background: linear-gradient(90deg, #F00 2.76%, rgba(255, 0, 0, 0.75) 65.29% ,#0D1423 75.27%);
+}
+
+
 body {
     background-color: #000511;
 }
