@@ -4,7 +4,6 @@ import { Stats } from '../stats/stats'
 import { useState, useEffect } from 'react';
 export function SupplierCard({data}) {
 
-    console.log(data)
     const [Spribe, setSpribe] = useState(false)
     function formatBigNumber(number) {
         if (number >= 1e6) {

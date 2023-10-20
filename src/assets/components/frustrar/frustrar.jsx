@@ -3,9 +3,15 @@ import './frustrar.css'
 import arrow from '../../images/chevron-right.svg'
 import logo from '../../images/logo.png'
 
+import { useLocation, useNavigate } from 'react-router-dom';
+
+
 import { Stats } from "../stats/stats";
 
-export function MinesGame({data}) {
+export function Frustrar({ data }) {
+
+    const navigate = useNavigate();
+
 
     function formatBigNumber(number) {
         if (number >= 1e6) {
@@ -14,22 +20,34 @@ export function MinesGame({data}) {
             return (number / 1e3).toFixed(0) + 'K';
         } else {
             return number;
-        }}
+        }
+    }
 
-
-    const gamePercentage = (data.revenuePercentage*3).toFixed(0)
-    const gameRev = formatBigNumber(data.revenue)
-    const gamePay = formatBigNumber(data.revenue * 0.2)
-
-
-  
 
     useEffect(() => {
 
-        console.log(data)
+        if(typeof(data)=='string'){
+            navigate('/')
+        }
 
-        setValorVariavel(gamePercentage)
-    })
+        if(data==null){
+            navigate('/')
+        }
+
+        if (data !== 'string' && data !== null) {
+
+            const gamePercentage = (data.revenuePercentage * 3).toFixed(0);
+            setValorVariavel(gamePercentage);
+            setGameRev(formatBigNumber(data.revenue))
+            setGamePay(formatBigNumber(data.revenue * 0.2))
+
+        } 
+    }, []);
+
+
+    const [gameRev, setGameRev] = useState('formatBigNumber(data.revenue)')
+    const [gamePay, setGamePay] = useState('formatBigNumber(data.revenue * 0.2)')
+
 
 
     // codigo pra aumentar a % 
@@ -48,8 +66,8 @@ export function MinesGame({data}) {
     return (
         <div className="container">
             <div className="vip-container">
-                <img src={logo}/>
-                <button className="vip-button">Acesso VIP <img src={arrow}/></button>
+                <img src={logo} />
+                <button className="vip-button">Acesso VIP <img src={arrow} /></button>
             </div>
             <div className="box">
                 <h1 className="game-title">Mines</h1>
@@ -61,16 +79,16 @@ export function MinesGame({data}) {
                 </div>
                 <div className="game-info-container">
                     <p className="game-info">O sistema da SPRIBE irá te identificar como um jogador “frustrado” da BullsBet e vai fazer com que suas chances de ganhar aumentem</p>
-                
+
                     <div className="game-pay-reve">
-                    <Stats
-                    title={'Pagamento'}
-                    value={`R$ ${gamePay}`}
-                />
-                <Stats
-                    title={'Faturamento'}
-                    value={`R$ ${gameRev}`}
-                />
+                        <Stats
+                            title={'Pagamento'}
+                            value={`R$ ${gamePay}`}
+                        />
+                        <Stats
+                            title={'Faturamento'}
+                            value={`R$ ${gameRev}`}
+                        />
                     </div>
                 </div>
                 <button className="frustrate-button">Frustrar Conta</button>

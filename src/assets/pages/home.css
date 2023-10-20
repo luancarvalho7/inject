@@ -29,6 +29,14 @@
 
 .swiper-slide{
     width: fit-content !important;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.swiper-slide:hover{
+    transform: scale(0.98);
+}
+.swiper-slide:active{
+    transform: scale(0.93);
 }
 
 .swiper-slide:nth-child(1){

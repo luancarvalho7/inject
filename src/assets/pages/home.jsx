@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { HouseCard } from '../components/cards/houseCard.jsx';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 
 
 
@@ -21,7 +23,29 @@ import './home.css'
 
 
 
-export function Home({ data }) {
+export function Home({ data, setSGame, selectedGame }) {
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const hasNavigatedAway = useRef(false); // flag variable
+  
+    useEffect(() => {
+      if (typeof(selectedGame) === 'object' && selectedGame!==null) {
+
+        navigate('/frustrar');
+        hasNavigatedAway.current = true; // Set the flag to true when navigating away
+      }
+    }, [selectedGame]);
+  
+    useEffect(() => {
+      if (location.pathname === '/' && hasNavigatedAway.current) {
+        // Only clear if we have navigated away before
+        setSGame(null); // Replace this with your logic to clear the selectedGame
+        hasNavigatedAway.current = false; // Reset the flag
+      }
+    }, [location]);
+
+
 
     return <>
 
@@ -81,7 +105,8 @@ export function Home({ data }) {
                 >{
                         data[0].suppliers[0].games.map((current, index) =>
                             <SwiperSlide key={index}>
-                                <GameCard data={current} />
+                                <GameCard data={current}
+                                    setSGame={setSGame} />
                             </SwiperSlide>
                         )}
                 </Swiper>}

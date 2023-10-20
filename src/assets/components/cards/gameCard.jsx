@@ -4,12 +4,13 @@ import { ProgressBar } from "./gameProgress";
 import seedrandom from "seedrandom";
 
 
-export function GameCard({ data }) {
+export function GameCard({ data, setSGame }) {
 
     const [quality, setQuality] = useState('normal')
     const [newGamePercentage, setNgp] = useState(0)
 
     useEffect(() => {
+
         // Calculate the remaining time until the next 15-minute mark
         const now = new Date();
         const minutes = now.getMinutes();
@@ -43,7 +44,6 @@ export function GameCard({ data }) {
                 }
                 if (data.revenuePercentage > 17) {
                     newNgp = (data.revenuePercentage * (randomFactor * 2.5 + 1)).toFixed(0);
-                    console.log(newNgp)
                 }
 
                 // Apply the barrier logic
@@ -96,23 +96,21 @@ export function GameCard({ data }) {
 
     useEffect(() => {
 
-        console.log(newGamePercentage)
 
         if (newGamePercentage >= 60) {
             setQuality('good')
         }
         else if (newGamePercentage >= 25) { 
-            console.log(newGamePercentage)
             setQuality('normal') }
         else if (newGamePercentage < 25) { 
-            console.log(newGamePercentage)
             setQuality('bad') }
 
     }, [newGamePercentage])
 
     const handleCardClick = () => {
-        window.location.href = 'frustrar';
-    };
+        setSGame(data)
+/*         window.location.href = 'frustrar';
+ */    };
 
 
     return (<div className="gameCard-stroke selectCard card-enabled" onClick={handleCardClick}>

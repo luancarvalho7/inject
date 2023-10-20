@@ -1,23 +1,36 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import data from './assets/data/data.json';
 import suppliersData from './assets/data/suppliers.json';
 
 import seedrandom from 'seedrandom';
 
 
+
 import { HouseCard } from './assets/components/cards/houseCard.jsx';
 import { SupplierCard } from './assets/components/cards/supplierCard';
 import { GameCard } from './assets/components/cards/gameCard';
-import { MinesGame } from './assets/components/frustrar/frustrar';
 import { Home } from './assets/pages/home';
+
+import { Frustrar } from './assets/components/frustrar/frustrar.jsx';
+
+
 
 
 function App() {
 
+
+
+
   const [loaded, setLoaded] = useState(false)
   const [housesData, setHousesData] = useState(data);
 
+  const [selectedGame, setSGame] = useState('')
 
+
+  /*   randomizer start
+   */
   function randomizeHouseData(houseData) {
     const today = new Date();
     const day = today.getDate();
@@ -34,7 +47,7 @@ function App() {
   function distributeToSuppliers(houseData, suppliersData) {
 
 /*     console.log(houseData)
- */   const filtered = suppliersData.filter((x)=>{if(houseData.suppliers.includes(x.name)){return x}})
+ */   const filtered = suppliersData.filter((x) => { if (houseData.suppliers.includes(x.name)) { return x } })
     const totalWeight = filtered.reduce((acc, supplier) => acc + supplier.weight, 0);
     return suppliersData.map((supplier) => {
 
@@ -140,26 +153,23 @@ function App() {
     setHousesData(newHousesData);
   }, []);
 
-  function amin(){
-    console.log(housesData)
-  }
 
+  
   return (
     <>
-    
-    <button onClick={amin}>xxx</button>
-    {loaded ? <Home data={housesData} /> : ''}
-     {/*  
 
-      <SupplierCard data={housesData[0].suppliers[1]} />
 
-      <SupplierCard data={housesData[0].suppliers[0]} />
+      <Router>
+        <Routes>
 
-      {housesData.map((current) => <HouseCard data={current} />)} */}
+          <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} /> : ''} />
+          <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame}/>} />
 
-      
+        </Routes>
+      </Router>
     </>
   );
+
 }
 
 export default App;
