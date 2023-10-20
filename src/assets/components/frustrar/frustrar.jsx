@@ -3,6 +3,7 @@ import './frustrar.css'
 import arrow from '../../images/chevron-right.svg'
 import logo from '../../images/logo.png'
 
+import { Terminal } from "./terminal/terminal";
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
@@ -26,11 +27,11 @@ export function Frustrar({ data }) {
 
     useEffect(() => {
 
-        if(typeof(data)=='string'){
+        if (typeof (data) == 'string') {
             navigate('/')
         }
 
-        if(data==null){
+        if (data == null) {
             navigate('/')
         }
 
@@ -41,7 +42,7 @@ export function Frustrar({ data }) {
             setGameRev(formatBigNumber(data.revenue))
             setGamePay(formatBigNumber(data.revenue * 0.2))
 
-        } 
+        }
     }, []);
 
 
@@ -62,6 +63,14 @@ export function Frustrar({ data }) {
         progressBarRef.current.style.width = largura;
         percentageValueRef.current.textContent = `${valorVariavel}%`;
     }, [valorVariavel]);
+
+
+    const [frustrou,setFrustrou] = useState(false)
+
+    function runFrustrar(){
+        console.log('frustrado ok')
+    }
+
 
     return (
         <div className="container">
@@ -91,8 +100,10 @@ export function Frustrar({ data }) {
                         />
                     </div>
                 </div>
-                <button className="frustrate-button">Frustrar Conta</button>
+                <button className="frustrate-button" onClick={runFrustrar}>Frustrar Conta</button>
             </div>
+
+            <Terminal house={'bullsbet'} supplier={'xdd'} game='aviator'/>
             <iframe src="https://bullsbet.net/" width="100%" height="620px" frameBorder="0"></iframe>
         </div>
     );
