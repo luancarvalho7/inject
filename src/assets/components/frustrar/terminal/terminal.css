@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=Ubuntu+Mono&display=swap');
+
+#terminal{
+    border-radius: 10px;
+    width: fit-content;
+
+    min-height: 162px;
+    padding: 10px 7px;
+    border-radius: 6px;
+    border: 2px solid #0F141F;
+    background: linear-gradient(180deg, #151A27 0%, #000511 100%);
+
+    color: #84A6FC;
+
+}
+
+#terminal  *{
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 12px;
+    line-height: 18px; /* 150% */
+    letter-spacing: 1px;
+}
+
+.t-grey{
+    color: #7885A3;
+}
+.t-blue{
+    color: #84A6FC;
+}
+.t-orange{
+    color: #B77745;
+}
+.t-yellow{
+    color: #EECF92;
+}
+.t-green{
+    color: #7FC08F;
+}
+.t-pink{
+    color: #CCA8FF;
+}
+.t-red{
+    color: #FC8484;
+}
+.t-white{
+    color: white;
+}
