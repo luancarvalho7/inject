@@ -9,6 +9,11 @@ import chooseHouse from '../images/chooseHouse.svg'
 import chooseSupplier from '../images/chooseSupplier.svg'
 import './home.css'
 import { SupplierCard } from '../components/cards/supplierCard';
+import { GameCard } from '../components/cards/gameCard';
+
+import logo from '../images/logo.png'
+import arrow from '../images/chevron-right.svg'
+
 
 
 
@@ -16,7 +21,10 @@ export function Home({ data }) {
 
     return <>
 
-
+        <div className="vip-container">
+            <img src={logo} />
+            <button className="vip-button">Acesso VIP <img src={arrow} /></button>
+        </div>
         {/* Escolha sua casa de apostas */}
         <div className="miniSectionTitle"><img src={chooseHouse} /><p className='mainText'>Escolha a Casa de Apostas</p></div>
         {
@@ -39,15 +47,34 @@ export function Home({ data }) {
             <Swiper
                 slidesPerView={1.85}
                 centeredSlides={false}
-                spaceBetween={30}   
+                spaceBetween={30}
                 className="mySwiper"
             >
                 {data[0].suppliers.map((current, index) =>
                     <SwiperSlide key={index}>
-                        <SupplierCard data={current}/>
+                        <SupplierCard data={current} />
                     </SwiperSlide>
                 )}
             </Swiper>
         }
+        {/* Jogos Disponíveis */}
+        <div id="enabledGames">
+            <h1 className='mainText'> Jogos Disponíveis </h1>
+
+
+            {
+                <Swiper
+                    slidesPerView={2}
+                    centeredSlides={false}
+                    spaceBetween={30}
+                    className="mySwiper"
+                >{
+                        data[0].suppliers[0].games.map((current, index) =>
+                            <SwiperSlide key={index}>
+                                <GameCard data={current} />
+                            </SwiperSlide>
+                        )}
+                </Swiper>}
+        </div>
     </>
 }

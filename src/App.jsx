@@ -147,12 +147,8 @@ function App() {
     <>
     
     <button onClick={amin}>xxx</button>
-    <Home data={housesData}/>
-     {/*  {loaded ? <GameCard data={housesData[0].suppliers[1].games[0]} /> : ''
-      
-      
-      
-      }
+    {loaded ? <Home data={housesData} /> : ''}
+     {/*  
 
       <SupplierCard data={housesData[0].suppliers[1]} />
 

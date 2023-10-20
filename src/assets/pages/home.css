@@ -1,8 +1,19 @@
-.miniSectionTitle{
+.miniSectionTitle {
     display: flex;
     gap: 6px;
 }
-.miniSectionTitle p{
+
+.miniSectionTitle p {
     font-weight: 500;
     font-size: 16px;
 }
+
+#enabledGames > h1 {
+    font-size: 32px;
+    text-align: center;
+    width: 100%;
+    font-style: normal;
+    font-weight: 500;
+}
+
+
