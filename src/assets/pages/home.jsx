@@ -37,7 +37,7 @@ export function Home({ data }) {
         <div className="miniSectionTitle"><img src={chooseSupplier} /><p className='mainText'>Escolha Escolha o Fornecedor</p></div>
         {
             <Swiper
-                slidesPerView={1.4}
+                slidesPerView={1.85}
                 centeredSlides={false}
                 spaceBetween={30}   
                 className="mySwiper"
