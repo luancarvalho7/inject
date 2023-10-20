@@ -47,6 +47,7 @@ function App() {
 
         return {
           name: supplier.name,
+          image: supplier.image,
           players: Math.floor(houseData.players * portion),
           revenue: Math.floor(houseData.revenue * portion),
           payment: Math.floor((houseData.revenue * portion) * 0.2)

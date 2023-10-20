@@ -10,6 +10,7 @@
     border-radius: 16px;
     position: relative;
 
+    user-select: none;
 }
 
 .selectCardBlocked {
@@ -72,6 +73,9 @@
     display: flex;
     justify-content: space-between;
 }
+.lowopacity{
+    opacity: 0.84;
+}
 
 .image {
     height: 85px;
@@ -96,7 +100,6 @@
 }
 
 .supp-houseD {
-
     justify-content: space-around;
 }
 

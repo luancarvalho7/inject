@@ -24,7 +24,7 @@ export function HouseCard({ data }) {
         <> <div className={BullsBet ? "houseCard selectCard card-enabled" : "houseCard selectCardBlocked card-enabled"} >
             <div className={BullsBet ? "sc-content" : "sc-content-blocked"}>
                 <img src={data.image} className={BullsBet ? "image" : "image-blocked"} />
-                <div className="houseData">
+                <div className={BullsBet ? "houseData" : "houseData lowopacity"} >
                     <Stats
                         title={'Pagamento'}
                         value={`R$ ${formatBigNumber(data.revenue * 0.2)}`}

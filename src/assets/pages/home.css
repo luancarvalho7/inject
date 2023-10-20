@@ -1,6 +1,8 @@
+
 .miniSectionTitle {
     display: flex;
     gap: 6px;
+    margin-bottom: 8px;
 }
 
 .miniSectionTitle p {
@@ -8,12 +10,27 @@
     font-size: 16px;
 }
 
+.hSection{
+    margin: 20px 0px;
+}
+
+
 #enabledGames > h1 {
     font-size: 32px;
     text-align: center;
     width: 100%;
     font-style: normal;
     font-weight: 500;
+    margin: 12px 0px;
 }
 
+/* Swipers */
 
+
+.swiper-slide{
+    width: fit-content !important;
+}
+
+.swiper-slide:nth-child(1){
+    margin-left: 20px;
+}
