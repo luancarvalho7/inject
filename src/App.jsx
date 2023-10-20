@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 import data from './assets/data/data.json';
 import suppliersData from './assets/data/suppliers.json';
+
 import seedrandom from 'seedrandom';
+
+
 import { HouseCard } from './assets/components/cards/houseCard.jsx';
 import { SupplierCard } from './assets/components/cards/supplierCard';
 import { GameCard } from './assets/components/cards/gameCard';
 import { MinesGame } from './assets/components/frustrar/frustrar';
+import { Home } from './assets/pages/home';
 
 
 function App() {
@@ -141,8 +145,10 @@ function App() {
 
   return (
     <>
+    
     <button onClick={amin}>xxx</button>
-      {loaded ? <GameCard data={housesData[0].suppliers[1].games[0]} /> : ''
+    <Home data={housesData}/>
+     {/*  {loaded ? <GameCard data={housesData[0].suppliers[1].games[0]} /> : ''
       
       
       
@@ -152,7 +158,7 @@ function App() {
 
       <SupplierCard data={housesData[0].suppliers[0]} />
 
-      {housesData.map((current) => <HouseCard data={current} />)}
+      {housesData.map((current) => <HouseCard data={current} />)} */}
 
       
     </>
