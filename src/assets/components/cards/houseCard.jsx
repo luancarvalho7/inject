@@ -1,9 +1,11 @@
 import './selectCard.css'
 import { Stats } from '../stats/stats'
+import { useState, useEffect } from 'react';
 
 
 export function HouseCard({ data }) {
 
+    const [BullsBet, setBullsBet] = useState(false)
     function formatBigNumber(number) {
         if (number >= 1e6) {
             return (number / 1e6).toFixed(1) + 'M';
@@ -13,11 +15,15 @@ export function HouseCard({ data }) {
             return number.toString();
         }
     }
+    
+    useEffect(() => {if (data.casino == "BullsBet"){
+        setBullsBet(true)
+    }}, [])
 
     return (
-        <> <div className="houseCard selectCardBlocked card-enabled" >
-            <div className="sc-content-blocked">
-                <img src={data.image} className="image-blocked" />
+        <> <div className={BullsBet ? "houseCard selectCard card-enabled" : "houseCard selectCardBlocked card-enabled"} >
+            <div className={BullsBet ? "sc-content" : "sc-content-blocked"}>
+                <img src={data.image} className={BullsBet ? "image" : "image-blocked"} />
                 <div className="houseData">
                     <Stats
                         title={'Pagamento'}

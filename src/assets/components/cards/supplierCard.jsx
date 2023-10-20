@@ -2,8 +2,10 @@
 import './selectCard.css'
 import spribe from '../../images/spribe.png'
 import { Stats } from '../stats/stats'
+import { useState, useEffect } from 'react';
 export function SupplierCard({data}) {
 
+    const [Spribe, setSpribe] = useState(false)
     function formatBigNumber(number) {
         if (number >= 1e6) {
             return (number / 1e6).toFixed(1) + 'M';
@@ -14,9 +16,13 @@ export function SupplierCard({data}) {
         }
     }
 
+    useEffect(() => {if (data.name == "Spribe"){
+        setSpribe(true)
+    }}, [])
+
     return (
-        <div className="supplierCard selectCard card-enabled">
-            <div className="sc-content">
+        <div className={Spribe ? "supplierCard selectCardBlocked card-enabled" : "supplierCard selectCard card-enabled"}>
+            <div className={Spribe ? "sc-content-blocked" : "sc-content"}>
                 <img src={spribe} className="image" />
                 <div className="houseData supp-houseD">
 
