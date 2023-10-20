@@ -1,5 +1,4 @@
 import './selectCard.css'
-import bullsbet from '../../images/bullsbet.png'
 import { Stats } from '../stats/stats'
 
 
@@ -18,7 +17,7 @@ export function HouseCard({ data }) {
     return (
         <> <div className="houseCard selectCardBlocked card-enabled" >
             <div className="sc-content-blocked">
-                <img src={bullsbet} className="image-blocked" />
+                <img src={data.image} className="image-blocked" />
                 <div className="houseData">
                     <Stats
                         title={'Pagamento'}

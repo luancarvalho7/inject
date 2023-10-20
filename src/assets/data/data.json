@@ -3,13 +3,50 @@
       "casino": "BullsBet",
       "players": 900000,
       "revenue": 3420000,
-      "suppliers": ["PG Soft", "Spribe"]
+      "suppliers": ["PG Soft", "Spribe"],
+      "image": "https://bullspartners.com/wp-content/uploads/2023/09/Bullsbet-PNG-LOGO-scaled-e1695248496183-1024x322.webp"
     },
     {
       "casino": "PlayPix",
       "players": 12600000,
       "revenue": 48500000,
-      "suppliers": ["Spribe"]
+      "suppliers": ["PG Soft", "Spribe"],
+      "image": "https://faq.playpix.com/wp-content/uploads/2023/02/Logo-Icon-White-Text.png"
+    },
+    {
+      "casino": "RealsBet",
+      "players": 1900000,
+      "revenue": 7220000,
+      "suppliers": ["PG Soft", "Spribe"],
+      "image": "https://d1fojj4wte942r.cloudfront.net/sites/image-1689057686537855.webp"
+    },
+    {
+      "casino": "GreenBets",
+      "players": 2200000,
+      "revenue": 31768000,
+      "suppliers": ["PG Soft", "Spribe"],
+      "image": "https://d1fojj4wte942r.cloudfront.net/sites/image-1691302782686392.webp"
+    },
+    {
+      "casino": "NutsBet",
+      "players": 5700000,
+      "revenue": 21660000,
+      "suppliers": ["PG Soft", "Spribe"],
+      "image": "https://d1fojj4wte942r.cloudfront.net/sites/image-1693442355890560.webp"
+    },
+    {
+      "casino": "MMAbet",
+      "players": 7100000,
+      "revenue": 26980000,
+      "suppliers": ["PG Soft", "Spribe"],
+      "image": "https://d1fojj4wte942r.cloudfront.net/sites/image-1689891468612656.webp"
+    },
+    {
+      "casino": "Esporte da Sorte",
+      "players": 11800000,
+      "revenue": 44840000,
+      "suppliers": ["PG Soft", "Spribe"],
+      "image": "https://apostas.gazetaesportiva.com/static/assets/advertisers-geographical-areas/713-sportsbook-logo-colored.svg"
     }
   ]
   
