@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=Ubuntu+Mono&display=swap');
 
+
+#terminalSection{
+    width: fit-content;
+}
 #terminal{
     border-radius: 10px;
     width: fit-content;
@@ -19,6 +23,17 @@
     font-size: 12px;
     line-height: 18px; /* 150% */
     letter-spacing: 1px;
+}
+.t-labels-holder{
+    margin-bottom: 2px;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.tLabel{
+    font-size: 8px;
+    display: flex;
 }
 
 .t-grey{
