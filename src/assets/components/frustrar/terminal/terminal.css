@@ -4,7 +4,7 @@
 #terminalSection{
     width: fit-content;
     position: absolute;
-    transform: translateY(-198px);
+    transform: translateY(35px);
 }
 #terminal{
     border-radius: 10px;
