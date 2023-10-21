@@ -142,7 +142,7 @@ export function Frustrar({ data }) {
                 <button className="vip-button">Acesso VIP <img src={arrow} alt="Seta" /></button>
             </div>
             <div className="box">
-                <div className={`box-content ${showTerminal ? "blur" : ""}`}>
+                <div className={`box-content ${showTerminal ? "none" : ""}`}>
                     <h1 className="game-title">Mines</h1>
                     <div className="BarFrustrar">
                         <ProgressBar valorVariavel={newGamePercentage} quality={quality} />

@@ -62,3 +62,58 @@
 .t-white{
     color: white;
 }
+
+.show-success {
+    display: block;
+    animation: showSuccessAnimation 1s ease-in-out;
+}
+.success-overlay{
+    display: flex;
+    justify-content: center;
+    transform: translateY(-207px);
+    color: white;
+}
+.success-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Sucess-sucess-overlay{
+    font-size: 24px;
+}
+.Frustrated-Info{
+    max-width: 200px;
+    text-align: center;
+    font-size: 8px;
+    color: #B4BCD0;
+    padding: 5px;
+}
+.success-content span{
+    font-size: 30px;
+}
+.Time-Left{
+    font-size: 11px;
+    margin-top: -9px;
+}
+.sucess-button{
+    width: 105%;
+    height: 25px;
+    border-radius: 99px;
+    background: radial-gradient(70.71% 70.71% at 50% 50%, #2558D3 29%, #1944AC 100%);
+    box-shadow: -1px -1px 2px 0px #19367C inset, 1px 1px 0px 0px rgba(192, 193, 224, 0.20) inset, 0px 12px 50px 0px rgba(71, 113, 217, 0.44);
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    border: 1px;
+    margin-top: 10px;
+}
+
+@keyframes showSuccessAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}

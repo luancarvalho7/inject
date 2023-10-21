@@ -123,8 +123,8 @@
 
 .gameImage {
     position: absolute;
-    object-fit: cover;
-    width: 178px;
+    object-fit: contain;
+    width: 255px;
     height: 180px;
     top: -18px;
 
