@@ -2,13 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import './frustrar.css'
 import arrow from '../../images/chevron-right.svg'
 import logo from '../../images/logo.png'
+import seedrandom from "seedrandom";
 
+import { ProgressBar } from '../cards/gameProgress';
 import { Terminal } from "./terminal/terminal";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Stats } from "../stats/stats";
 
 export function Frustrar({ data }) {
     const navigate = useNavigate();
+
+    const [quality, setQuality] = useState('normal')
+    const [newGamePercentage, setNgp] = useState(0)
 
     function formatBigNumber(number) {
         if (number >= 1e6) {
@@ -29,7 +34,6 @@ export function Frustrar({ data }) {
         }
         if (data !== 'string' && data !== null) {
             const gamePercentage = (data.revenuePercentage * 3).toFixed(0);
-            setValorVariavel(gamePercentage);
             setGameRev(formatBigNumber(data.revenue))
             setGamePay(formatBigNumber(data.revenue * 0.2))
         }
@@ -38,15 +42,89 @@ export function Frustrar({ data }) {
     const [gameRev, setGameRev] = useState('formatBigNumber(data.revenue)');
     const [gamePay, setGamePay] = useState('formatBigNumber(data.revenue * 0.2)');
 
-    const [valorVariavel, setValorVariavel] = useState(50);
-    const progressBarRef = useRef(null);
-    const percentageValueRef = useRef(null);
+    useEffect(() => {
+
+        // Calculate the remaining time until the next 15-minute mark
+        const now = new Date();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const milliseconds = now.getMilliseconds();
+
+        const timeToNextQuarterHour = (15 - (minutes % 15) - 1) * 60 * 1000 + (60 - seconds) * 1000 + (1000 - milliseconds);
+
+        // Function to update the random game percentage
+        const updateGamePercentage = () => {
+            const today = new Date();
+            const day = today.getDate();
+            const rng = seedrandom(day.toString());
+            const randomFactor = rng();
+
+            function calcNgp() {
+                let newNgp;
+
+
+                if (data.revenuePercentage <= 2) {
+                    newNgp = (data.revenuePercentage * (randomFactor * 9 + 1)).toFixed(0);
+                }
+                if (data.revenuePercentage > 2) {
+                    newNgp = (data.revenuePercentage * (randomFactor * 6 + 1)).toFixed(0);
+                }
+                if (data.revenuePercentage > 5) {
+                    newNgp = (data.revenuePercentage * (randomFactor * 3 + 1)).toFixed(0);
+                }
+                if (data.revenuePercentage > 10) {
+                    newNgp = (data.revenuePercentage * (randomFactor * 4 + 1)).toFixed(0);
+                }
+                if (data.revenuePercentage > 17) {
+                    newNgp = (data.revenuePercentage * (randomFactor * 2.5 + 1)).toFixed(0);
+                }
+
+                // Apply the barrier logic
+                if (newNgp >= 100) {
+                    const specialRng = seedrandom(today.toISOString());
+                    newNgp = Math.floor(specialRng() * (98 - 88 + 1) + 88).toFixed(0);
+                }
+
+                setNgp(newNgp);
+            }
+
+            calcNgp();
+        };
+
+        // Update the game percentage immediately and schedule further updates
+        updateGamePercentage();
+        const intervalId = setInterval(updateGamePercentage, 15 * 60 * 1000);
+
+        // Schedule an update for the next 15-minute mark
+        setTimeout(() => {
+            updateGamePercentage();
+            clearInterval(intervalId);
+            setInterval(updateGamePercentage, 15 * 60 * 1000);
+        }, timeToNextQuarterHour);
+
+        // Clear interval on unmount
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [data]);
 
     useEffect(() => {
-        const largura = `${valorVariavel * 1.5}%`;
-        progressBarRef.current.style.width = largura;
-        percentageValueRef.current.textContent = `${valorVariavel}%`;
-    }, [valorVariavel]);
+
+
+        if (newGamePercentage >= 60) {
+            setQuality('good')
+        }
+        else if (newGamePercentage >= 25) { 
+            setQuality('normal') }
+        else if (newGamePercentage < 25) { 
+            setQuality('bad') }
+
+    }, [newGamePercentage])
+
+    const handleCardClick = () => {
+        setSGame(data)
+/*         window.location.href = 'frustrar';
+ */    };
 
     const [frustrou, setFrustrou] = useState(false);
 
@@ -66,11 +144,8 @@ export function Frustrar({ data }) {
             <div className="box">
                 <div className={`box-content ${showTerminal ? "blur" : ""}`}>
                     <h1 className="game-title">Mines</h1>
-                    <div className="progress-bar">
-                        <div className="percentage-indicator" id="percentageIndicator">
-                            <span ref={percentageValueRef} id="percentageValue"></span>
-                        </div>
-                        <div ref={progressBarRef} className="progress-fill" id="progressFill"></div>
+                    <div className="BarFrustrar">
+                        <ProgressBar valorVariavel={newGamePercentage} quality={quality} />
                     </div>
                     <div className="game-info-container">
                         <p className="game-info">O sistema da SPRIBE irá te identificar como um jogador “frustrado” da BullsBet e vai fazer com que suas chances de ganhar aumentem</p>
