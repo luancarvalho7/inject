@@ -3,6 +3,8 @@
 
 #terminalSection{
     width: fit-content;
+    position: absolute;
+    transform: translateY(-198px);
 }
 #terminal{
     border-radius: 10px;

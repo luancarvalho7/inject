@@ -18,6 +18,9 @@ body{
     border: 1px;
     width: 151px;
 }
+.blur {
+    filter: blur(5px);
+}
 .box{
     padding: 10px;
     margin: 25px;
