@@ -79,6 +79,9 @@
     align-items: center;
     justify-content: center;
 }
+.success-content a{
+    width: 105%;
+}
 .Sucess-sucess-overlay{
     font-size: 24px;
 }

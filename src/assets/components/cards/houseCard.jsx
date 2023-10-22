@@ -1,6 +1,7 @@
 import './selectCard.css'
 import { Stats } from '../stats/stats'
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export function HouseCard({ data }) {
@@ -20,8 +21,12 @@ export function HouseCard({ data }) {
         setBullsBet(true)
     }}, [])
 
+    const navigate = useNavigate();
+
     return (
-        <> <div className={BullsBet ? "houseCard selectCard card-enabled" : "houseCard selectCardBlocked card-enabled"} >
+        <> <div className={BullsBet ? "houseCard selectCard card-enabled" : "houseCard selectCardBlocked card-enabled"} 
+            onClick={() => navigate('/fornecedores')}  
+           >
             <div className={BullsBet ? "sc-content" : "sc-content-blocked"}>
                 <img src={data.image} className={BullsBet ? "image" : "image-blocked"} />
                 <div className={BullsBet ? "houseData" : "houseData lowopacity"} >

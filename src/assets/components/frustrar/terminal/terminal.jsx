@@ -88,7 +88,7 @@ export function Terminal({ house, supplier, game }) {
             <h6 className='Frustrated-Info'>O sistema da SPRIBE ira te identificar como um jogador "frustrado" e vai fazer com que você comece a ganhar nos próximos:</h6>
             <Timer/>
             <p className='Time-Left'>tempo restante </p>
-            <button className="sucess-button">Jogar Agora</button>
+            <a href='#iframe'><button className="sucess-button">Jogar Agora</button></a>
           </div>
         </div>
       )}

@@ -1,19 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
-import './frustrar.css'
-import arrow from '../../images/chevron-right.svg'
-import logo from '../../images/logo.png'
+import React, { useEffect, useState } from "react";
+import './frustrar.css';
+import arrow from '../../images/chevron-right.svg';
+import logo from '../../images/logo.png';
 import seedrandom from "seedrandom";
 
 import { ProgressBar } from '../cards/gameProgress';
 import { Terminal } from "./terminal/terminal";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Stats } from "../stats/stats";
 
 export function Frustrar({ data }) {
     const navigate = useNavigate();
 
-    const [quality, setQuality] = useState('normal')
-    const [newGamePercentage, setNgp] = useState(0)
+    const [quality, setQuality] = useState('normal');
+    const [newGamePercentage, setNewGamePercentage] = useState(0);
+    const [gameRev, setGameRev] = useState('');
+    const [gamePay, setGamePay] = useState('');
 
     function formatBigNumber(number) {
         if (number >= 1e6) {
@@ -26,42 +28,28 @@ export function Frustrar({ data }) {
     }
 
     useEffect(() => {
-        if (typeof (data) == 'string') {
-            navigate('/')
+        if (typeof data === 'string') {
+            navigate('/');
         }
         if (data == null) {
-            navigate('/')
+            navigate('/');
         }
         if (data !== 'string' && data !== null) {
             const gamePercentage = (data.revenuePercentage * 3).toFixed(0);
-            setGameRev(formatBigNumber(data.revenue))
-            setGamePay(formatBigNumber(data.revenue * 0.2))
+            setGameRev(formatBigNumber(data.revenue));
+            setGamePay(formatBigNumber(data.revenue * 0.2));
         }
-    }, []);
-
-    const [gameRev, setGameRev] = useState('formatBigNumber(data.revenue)');
-    const [gamePay, setGamePay] = useState('formatBigNumber(data.revenue * 0.2)');
+    }, [data]);
 
     useEffect(() => {
-
-        // Calculate the remaining time until the next 15-minute mark
-        const now = new Date();
-        const minutes = now.getMinutes();
-        const seconds = now.getSeconds();
-        const milliseconds = now.getMilliseconds();
-
-        const timeToNextQuarterHour = (15 - (minutes % 15) - 1) * 60 * 1000 + (60 - seconds) * 1000 + (1000 - milliseconds);
-
-        // Function to update the random game percentage
         const updateGamePercentage = () => {
-            const today = new Date();
-            const day = today.getDate();
-            const rng = seedrandom(day.toString());
-            const randomFactor = rng();
+            if (data && data.revenuePercentage) {
+                const today = new Date();
+                const day = today.getDate();
+                const rng = seedrandom(day.toString());
+                const randomFactor = rng();
 
-            function calcNgp() {
                 let newNgp;
-
 
                 if (data.revenuePercentage <= 2) {
                     newNgp = (data.revenuePercentage * (randomFactor * 9 + 1)).toFixed(0);
@@ -79,61 +67,55 @@ export function Frustrar({ data }) {
                     newNgp = (data.revenuePercentage * (randomFactor * 2.5 + 1)).toFixed(0);
                 }
 
-                // Apply the barrier logic
                 if (newNgp >= 100) {
                     const specialRng = seedrandom(today.toISOString());
                     newNgp = Math.floor(specialRng() * (98 - 88 + 1) + 88).toFixed(0);
                 }
 
-                setNgp(newNgp);
+                setNewGamePercentage(newNgp);
             }
-
-            calcNgp();
         };
 
-        // Update the game percentage immediately and schedule further updates
         updateGamePercentage();
         const intervalId = setInterval(updateGamePercentage, 15 * 60 * 1000);
 
-        // Schedule an update for the next 15-minute mark
+        const now = new Date();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const milliseconds = now.getMilliseconds();
+        const timeToNextQuarterHour = (15 - (minutes % 15) - 1) * 60 * 1000 + (60 - seconds) * 1000 + (1000 - milliseconds);
+
         setTimeout(() => {
             updateGamePercentage();
             clearInterval(intervalId);
             setInterval(updateGamePercentage, 15 * 60 * 1000);
         }, timeToNextQuarterHour);
 
-        // Clear interval on unmount
         return () => {
             clearInterval(intervalId);
         };
     }, [data]);
 
     useEffect(() => {
-
-
         if (newGamePercentage >= 60) {
-            setQuality('good')
+            setQuality('good');
+        } else if (newGamePercentage >= 25) {
+            setQuality('normal');
+        } else if (newGamePercentage < 25) {
+            setQuality('bad');
         }
-        else if (newGamePercentage >= 25) { 
-            setQuality('normal') }
-        else if (newGamePercentage < 25) { 
-            setQuality('bad') }
-
-    }, [newGamePercentage])
+    }, [newGamePercentage]);
 
     const handleCardClick = () => {
-        setSGame(data)
-/*         window.location.href = 'frustrar';
- */    };
+        setSGame(data);
+    };
 
-    const [frustrou, setFrustrou] = useState(false);
+    const [showTerminal, setShowTerminal] = useState(false);
 
     function runFrustrar() {
         console.log('frustrado ok');
         setShowTerminal(true);
     }
-
-    const [showTerminal, setShowTerminal] = useState(false);
 
     return (
         <div className="container">
@@ -166,7 +148,7 @@ export function Frustrar({ data }) {
                     <Terminal house={'bullsbet'} supplier={'xdd'} game='aviator' />
                 )}
             </div>
-            <iframe src="https://bullsbet.net/" width="100%" height="620px" frameBorder="0"></iframe>
+            <iframe src="https://bullsbet.net/" width="100%" height="620px" frameBorder="0" id="iframe"></iframe>
         </div>
     );
 }
