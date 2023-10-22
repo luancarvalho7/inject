@@ -74,7 +74,7 @@ export function Home({ data, setSGame, selectedGame }) {
         {/* Escolha o seu Fornecedor */}
         <section className='hSection'>
 
-            <div className="miniSectionTitle marginSpacings"><img src={chooseSupplier} /><p className='mainText'>Escolha Escolha o Fornecedor</p></div>
+            <div className="miniSectionTitle marginSpacings"><img src={chooseSupplier} /><p className='mainText'>Escolha o Fornecedor</p></div>
             {
                 <Swiper
                     slidesPerView={'auto'}
