@@ -19,6 +19,7 @@ import { GameCard } from '../components/cards/gameCard';
 import logo from '../images/logo.png'
 import arrow from '../images/chevron-right.svg'
 import './home.css'
+import { Nav } from '../components/nav/nav.jsx';
 
 
 
@@ -28,31 +29,28 @@ export function Home({ data, setSGame, selectedGame }) {
     const location = useLocation();
     const navigate = useNavigate();
     const hasNavigatedAway = useRef(false); // flag variable
-  
-    useEffect(() => {
-      if (typeof(selectedGame) === 'object' && selectedGame!==null) {
 
-        navigate('/frustrar');
-        hasNavigatedAway.current = true; // Set the flag to true when navigating away
-      }
-    }, [selectedGame]);
-  
     useEffect(() => {
-      if (location.pathname === '/' && hasNavigatedAway.current) {
-        // Only clear if we have navigated away before
-        setSGame(null); // Replace this with your logic to clear the selectedGame
-        hasNavigatedAway.current = false; // Reset the flag
-      }
+        if (typeof (selectedGame) === 'object' && selectedGame !== null) {
+
+            navigate('/frustrar');
+            hasNavigatedAway.current = true; // Set the flag to true when navigating away
+        }
+    }, [selectedGame]);
+
+    useEffect(() => {
+        if (location.pathname === '/' && hasNavigatedAway.current) {
+            // Only clear if we have navigated away before
+            setSGame(null); // Replace this with your logic to clear the selectedGame
+            hasNavigatedAway.current = false; // Reset the flag
+        }
     }, [location]);
 
 
 
     return <>
 
-        <div className="vip-container">
-            <img src={logo} />
-            <button className="vip-button">Acesso VIP <img src={arrow} /></button>
-        </div>
+        <Nav />
         {/* Escolha sua casa de apostas */}
         <section className='hSection'>
             <div className="miniSectionTitle marginSpacings"><img src={chooseHouse} /><p className='mainText'>Escolha a Casa de Apostas</p></div>

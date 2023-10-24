@@ -8,6 +8,7 @@ import { ProgressBar } from '../cards/gameProgress';
 import { Terminal } from "./terminal/terminal";
 import { useNavigate } from 'react-router-dom';
 import { Stats } from "../stats/stats";
+import { Nav } from "../nav/nav";
 
 export function Frustrar({ data }) {
     const navigate = useNavigate();
@@ -119,10 +120,7 @@ export function Frustrar({ data }) {
 
     return (
         <div className="container">
-            <div className="vip-container">
-                <img src={logo} alt="Logo" />
-                <button className="vip-button">Acesso VIP <img src={arrow} alt="Seta" /></button>
-            </div>
+            <Nav/>
             <div className="box">
                 <div className={`box-content ${showTerminal ? "none" : ""}`}>
                     <h1 className="game-title">Mines</h1>

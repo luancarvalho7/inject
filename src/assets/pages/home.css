@@ -31,6 +31,7 @@
     width: fit-content !important;
     cursor: pointer;
     transition: all 0.2s;
+    margin-left: 10px;
 }
 .swiper-slide:hover{
     transform: scale(0.98);
@@ -39,6 +40,3 @@
     transform: scale(0.93);
 }
 
-.swiper-slide:nth-child(1){
-    margin-left: 20px;
-}

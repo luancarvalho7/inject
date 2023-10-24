@@ -16,6 +16,7 @@ import { SupplierCard } from '../components/cards/supplierCard';
 import logo from '../images/logo.png'
 import arrow from '../images/chevron-right.svg'
 import './home.css'
+import { Nav } from '../components/nav/nav';
 
 
 
@@ -34,11 +35,8 @@ export function FornecedorCard({ data, setSGame }) {
 
 
     return <>
-
-        <div className="vip-container">
-            <img src={logo} />
-            <button className="vip-button">Acesso VIP <img src={arrow} /></button>
-        </div>
+    
+    <Nav />
 
         {/* Escolha o seu Fornecedor */}
         <section className='hSection'>
