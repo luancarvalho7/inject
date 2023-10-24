@@ -89,7 +89,7 @@ export function Terminal({ house, supplier, game }) {
           </span>
         </p>}
         {currentTask >= 5 && <p>Criando <span className='t-red'>requisição</span><span className='t-orange'> Inject </span></p>}
-        {currentTask >= 6 && <p>Enviando <span className='t-red'>requisição</span> à <span className='t-yellow'>api</span><span className='t-green'>.{fSupplier}.co/</span><span className='t-pink'>aviator</span></p>}
+        {currentTask >= 6 && <p>Enviando <span className='t-red'>requisição</span> à <span className='t-yellow'>api</span><span className='t-green'>.{fSupplier}.co/</span><span className='t-pink'>{fGame}</span></p>}
         {currentTask >= 7 && <p>Alternado <span className='t-white'>status</span> da conta</p>}
         {currentTask >= 8 && <p><span className='t-grey'>//// <br /> Sucesso!</span></p>}
       </div>
