@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export function Timer({ hideClassesCallback }) {
-  const [minutes, setMinutes] = useState(1);
+  const [minutes, setMinutes] = useState(10);
   const [seconds, setSeconds] = useState(0);
   const [timeIsUp, setTimeIsUp] = useState(false);
 
