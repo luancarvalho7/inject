@@ -101,7 +101,7 @@ export function Home({ data, setSGame, selectedGame }) {
                     spaceBetween={16}
                     className="mySwiper"
                 >{
-                        data[0].suppliers[0].games.map((current, index) =>
+                        data[0].suppliers[1].games.map((current, index) =>
                             <SwiperSlide key={index}>
                                 <GameCard data={current}
                                     setSGame={setSGame} />
