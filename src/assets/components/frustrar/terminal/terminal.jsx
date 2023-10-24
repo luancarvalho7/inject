@@ -93,7 +93,7 @@ export function Terminal({ house, supplier, game }) {
             <h6 className={`Frustrated-Info ${hideClasses ? 'hidden' : ''}`}>O sistema da SPRIBE ira te identificar como um jogador "frustrado" e vai fazer com que você comece a ganhar nos próximos:</h6>
             <Timer hideClassesCallback={hideClassesCallback} />
             <p className={`Time-Left ${hideClasses ? 'hidden' : ''}`}>tempo restante </p>
-            <a href='#iframe'><button className="sucess-button">Jogar Agora</button></a>
+            <a href='#iframe'><button className={`sucess-button ${hideClasses ? 'hidden' : ''}`}>Jogar Agora</button></a>
           </div>
         </div>
       )}

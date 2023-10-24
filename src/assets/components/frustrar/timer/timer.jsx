@@ -35,9 +35,12 @@ export function Timer({ hideClassesCallback }) {
   return (
     <div>
       {timeIsUp ? (
-        <p className='End-Info'>
-          Seu tempo acabou, retorne para a página inicial e espere no mínimo 2 minutos antes de jogar no mesmo jogo.
-        </p>
+        <div>
+          <p className='End-Info'>
+            Seu tempo acabou, retorne para a página inicial e espere no mínimo <strong>2 minutos</strong> antes de jogar no mesmo jogo.
+          </p>
+          <a href='/'><button className="sucess-button">Voltar pra Página Inicial</button></a>
+        </div>
       ) : (
         <span>{`${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`}</span>
       )}
