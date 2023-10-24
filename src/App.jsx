@@ -15,6 +15,7 @@ import { Home } from './assets/pages/home';
 import { Frustrar } from './assets/components/frustrar/frustrar.jsx';
 import { FornecedorCard } from './assets/pages/suppliers';
 import { Nav } from './assets/components/nav/nav';
+import { ScrollToTop } from './assets/utils/scrollToTop';
 
 
 
@@ -169,6 +170,7 @@ function App() {
 
       <Router>
         <Nav/>
+        <ScrollToTop/>
         <Routes>
           <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} /> : ''} />
           <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} />} />

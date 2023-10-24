@@ -1,5 +1,4 @@
-
-.vip-container{
+.vip-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -7,15 +6,18 @@
     box-sizing: border-box;
     padding: 0px 20px;
     position: sticky;
+    height: 75px;
     top: 0;
     z-index: 10;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.56) 0%, rgba(0, 0, 0, 0.0) 100%);
+    background: linear-gradient(180deg, #000511 50%, rgba(0, 5, 17, 0.00) 100%);
     backdrop-filter: blur(10px);
 }
-.vip-container img{
+
+.vip-container img {
     cursor: pointer;
 }
-.vip-button{
+
+.vip-button {
     cursor: pointer;
     height: 30px;
     border-radius: 99px;
