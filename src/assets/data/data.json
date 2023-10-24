@@ -3,42 +3,42 @@
       "casino": "BullsBet",
       "players": 900000,
       "revenue": 3420000,
-      "suppliers": ["PG Soft", "Spribe"],
+      "suppliers": ["PG Soft", "Spribe", "pragmaticplay", "Evoplay"],
       "image": "https://i.postimg.cc/3RW6RXxX/bullsbet.webp"
     },
     {
       "casino": "PlayPix",
       "players": 12600000,
       "revenue": 48500000,
-      "suppliers": ["PG Soft", "Spribe"],
+      "suppliers": ["PG Soft", "Spribe", "pragmaticplay", "Evoplay"],
       "image": "https://i.postimg.cc/TYXKrCv3/playpix.webp"
     },
     {
       "casino": "RealsBet",
       "players": 1900000,
       "revenue": 7220000,
-      "suppliers": ["PG Soft", "Spribe"],
+      "suppliers": ["PG Soft", "Spribe", "pragmaticplay", "netgaming", "Evoplay"],
       "image": "https://i.postimg.cc/sD9vK739/realsbet.webp"
     },
     {
       "casino": "GreenBets",
       "players": 2200000,
       "revenue": 31768000,
-      "suppliers": ["PG Soft", "Spribe"],
+      "suppliers": ["PG Soft", "Spribe", "pragmaticplay", "Evoplay"],
       "image": "https://i.postimg.cc/3N2WsDmh/greenbets.webp"
     },
     {
       "casino": "NutsBet",
       "players": 5700000,
       "revenue": 21660000,
-      "suppliers": ["PG Soft", "Spribe"],
+      "suppliers": ["PG Soft", "Spribe", "pragmaticplay", "netgaming", "Evoplay"],
       "image": "https://i.postimg.cc/pVj9h37S/nutsbet.webp"
     },
     {
       "casino": "MMAbet",
       "players": 7100000,
       "revenue": 26980000,
-      "suppliers": ["PG Soft", "Spribe"],
+      "suppliers": ["PG Soft", "Spribe", "pragmaticplay", "netgaming", "Evoplay"],
       "image": "https://i.postimg.cc/0ykr4jQg/mma.webp"
     },
     {
