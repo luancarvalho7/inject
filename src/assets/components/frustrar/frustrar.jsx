@@ -12,6 +12,8 @@ import { Nav } from "../nav/nav";
 import { FrustrarProgressBar } from "./frustrarProgressBar/frustrarProgressBar";
 
 export function Frustrar({ data }) {
+
+    console.log(data)
     const navigate = useNavigate();
 
     const [quality, setQuality] = useState('normal');
@@ -144,7 +146,7 @@ export function Frustrar({ data }) {
                     <button className="frustrate-button" onClick={runFrustrar}>Frustrar Conta</button>
                 </div>
                 {showTerminal && (
-                    <Terminal house={'bullsbet'} supplier={'xdd'} game='aviator' />
+                    <Terminal house={'bullsbet'} supplier={'xdd'} game={data.name} />
                 )}
             </div>
             <iframe src="https://bullsbet.net/" width="100%" height="620px" frameBorder="0" id="iframe"></iframe>
