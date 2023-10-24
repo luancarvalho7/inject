@@ -4,11 +4,12 @@ import arrow from '../../images/chevron-right.svg';
 import logo from '../../images/logo.png';
 import seedrandom from "seedrandom";
 
-import { ProgressBar } from '../cards/gameProgress';
+
 import { Terminal } from "./terminal/terminal";
 import { useNavigate } from 'react-router-dom';
 import { Stats } from "../stats/stats";
 import { Nav } from "../nav/nav";
+import { FrustrarProgressBar } from "./frustrarProgressBar/frustrarProgressBar";
 
 export function Frustrar({ data }) {
     const navigate = useNavigate();
@@ -124,8 +125,8 @@ export function Frustrar({ data }) {
             <div className="box">
                 <div className={`box-content ${showTerminal ? "none" : ""}`}>
                     <h1 className="game-title">Mines</h1>
-                    <div className="BarFrustrar">
-                        <ProgressBar valorVariavel={newGamePercentage} quality={quality} />
+                    <div className="fBarFrustrar">
+                        <FrustrarProgressBar valorVariavel={newGamePercentage} quality={quality} />
                     </div>
                     <div className="game-info-container">
                         <p className="game-info">O sistema da SPRIBE irá te identificar como um jogador “frustrado” da BullsBet e vai fazer com que suas chances de ganhar aumentem</p>

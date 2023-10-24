@@ -2,13 +2,13 @@
 
 
 #terminalSection{
-    width: fit-content;
+    width: 100%;
     position: absolute;
     transform: translateY(17px);
 }
 #terminal{
     border-radius: 10px;
-    width: fit-content;
+    width: 100%;
 
     min-height: 162px;
     padding: 10px 7px;
@@ -94,12 +94,14 @@
 }
 .success-content span{
     font-size: 30px;
+    font-weight: 700;
 }
 .Time-Left{
     font-size: 11px;
     margin-top: -3px;
 }
 .sucess-button{
+    cursor: pointer;
     width: 105%;
     height: 25px;
     border-radius: 99px;
