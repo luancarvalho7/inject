@@ -3,9 +3,17 @@ import './terminal.css';
 import { Timer } from '../timer/timer';
 
 export function Terminal({ house, supplier, game }) {
+
+  const [animRun, setAnimRun] = useState(false)
+
   function formatString(inputString) {
     return inputString.replace(/\s+/g, '_').toLowerCase();
   }
+
+  const [hideClasses, setHideClasses] = useState(false);
+  const hideClassesCallback = (shouldHide) => {
+    setHideClasses(shouldHide);
+  };
 
   const fHouse = formatString(house);
   const fSupplier = formatString(supplier);
@@ -23,6 +31,12 @@ export function Terminal({ house, supplier, game }) {
   const randomSuccessTime = () => Math.floor(Math.random() * (10 - 3 + 1) + 3) * 60 * 1000;
 
   useEffect(() => {
+
+
+    /*     ANIMATION APPEAR*/
+    setTimeout(setAnimRun(true), 200)
+
+
     function processTask(index) {
       if (index >= tasks.length) {
         setSuccessVisible(true);
@@ -51,14 +65,14 @@ export function Terminal({ house, supplier, game }) {
         setTimeout(() => {
           processTask(index + 1);
         }, tasks[index]);
-      }
+      } 
     }
 
     processTask(0);
   }, []);
 
   return (
-    <div id="terminalSection">
+    <div id="terminalSection" className={animRun ? `t-afteranim` : `t-beforeanim`}>
       <div className="t-labels-holder">
         <p className='tLabel secondText'> {`${house} > ${supplier} > ${game}`} </p>
         <p className='tLabel secondText'> Terminal </p>
@@ -83,12 +97,12 @@ export function Terminal({ house, supplier, game }) {
       {successVisible && (
         <div className={`success-overlay ${successVisible ? 'show-success' : ''}`}>
           <div className="success-content">
-            <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png" alt="Ícone de check" width={"55px"}/>
+            <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png" alt="Ícone de check" width={"55px"} />
             <h1 className='Sucess-sucess-overlay'>Sucesso!</h1>
-            <h6 className='Frustrated-Info'>O sistema da SPRIBE ira te identificar como um jogador "frustrado" e vai fazer com que você comece a ganhar nos próximos:</h6>
-            <Timer/>
-            <p className='Time-Left'>tempo restante </p>
-            <a href='#iframe'><button className="sucess-button">Jogar Agora</button></a>
+            <h6 className={`Frustrated-Info ${hideClasses ? 'hidden' : ''}`}>O sistema da SPRIBE ira te identificar como um jogador "frustrado" e vai fazer com que você comece a ganhar nos próximos:</h6>
+            <Timer hideClassesCallback={hideClassesCallback} />
+            <p className={`Time-Left ${hideClasses ? 'hidden' : ''}`}>tempo restante </p>
+            <a href='#iframe'><button className={`sucess-button ${hideClasses ? 'hidden' : ''}`}>Jogar Agora</button></a>
           </div>
         </div>
       )}

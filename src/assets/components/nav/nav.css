@@ -6,11 +6,17 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.56) 0%, rgba(0, 0, 0, 0.0) 100%);
+    backdrop-filter: blur(10px);
 }
 .vip-container img{
     cursor: pointer;
 }
 .vip-button{
+    cursor: pointer;
     height: 30px;
     border-radius: 99px;
     background: radial-gradient(70.71% 70.71% at 50% 50%, #2558D3 29%, #1944AC 100%);

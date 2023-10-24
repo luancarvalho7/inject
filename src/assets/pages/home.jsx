@@ -50,7 +50,7 @@ export function Home({ data, setSGame, selectedGame }) {
 
     return <>
 
-        <Nav />
+        
         {/* Escolha sua casa de apostas */}
         <section className='hSection'>
             <div className="miniSectionTitle marginSpacings"><img src={chooseHouse} /><p className='mainText'>Escolha a Casa de Apostas</p></div>

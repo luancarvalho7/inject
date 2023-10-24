@@ -4,13 +4,17 @@ import arrow from '../../images/chevron-right.svg';
 import logo from '../../images/logo.png';
 import seedrandom from "seedrandom";
 
-import { ProgressBar } from '../cards/gameProgress';
+
 import { Terminal } from "./terminal/terminal";
 import { useNavigate } from 'react-router-dom';
 import { Stats } from "../stats/stats";
 import { Nav } from "../nav/nav";
+import { FrustrarProgressBar } from "./frustrarProgressBar/frustrarProgressBar";
+import { Scrollbar } from "../scrollbar/scrollbar";
 
 export function Frustrar({ data }) {
+
+    console.log(data)
     const navigate = useNavigate();
 
     const [quality, setQuality] = useState('normal');
@@ -120,12 +124,12 @@ export function Frustrar({ data }) {
 
     return (
         <div className="container">
-            <Nav/>
+            <Scrollbar/>
             <div className="box">
                 <div className={`box-content ${showTerminal ? "none" : ""}`}>
                     <h1 className="game-title">Mines</h1>
-                    <div className="BarFrustrar">
-                        <ProgressBar valorVariavel={newGamePercentage} quality={quality} />
+                    <div className="fBarFrustrar">
+                        <FrustrarProgressBar valorVariavel={newGamePercentage} quality={quality} />
                     </div>
                     <div className="game-info-container">
                         <p className="game-info">O sistema da SPRIBE irá te identificar como um jogador “frustrado” da BullsBet e vai fazer com que suas chances de ganhar aumentem</p>
@@ -143,10 +147,10 @@ export function Frustrar({ data }) {
                     <button className="frustrate-button" onClick={runFrustrar}>Frustrar Conta</button>
                 </div>
                 {showTerminal && (
-                    <Terminal house={'bullsbet'} supplier={'xdd'} game='aviator' />
+                    <Terminal house={data.houseName} supplier={data.supplierName} game={data.name} />
                 )}
             </div>
-            <iframe src="https://bullsbet.net/" width="100%" height="620px" frameBorder="0" id="iframe"></iframe>
+            <iframe src="https://bullsbet.net/" frameBorder="0" id="iframe"></iframe>
         </div>
     );
 }

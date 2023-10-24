@@ -12,10 +12,9 @@ import { HouseCard } from './assets/components/cards/houseCard.jsx';
 import { SupplierCard } from './assets/components/cards/supplierCard';
 import { GameCard } from './assets/components/cards/gameCard';
 import { Home } from './assets/pages/home';
-
 import { Frustrar } from './assets/components/frustrar/frustrar.jsx';
-
 import { FornecedorCard } from './assets/pages/suppliers';
+import { Nav } from './assets/components/nav/nav';
 
 
 
@@ -47,8 +46,7 @@ function App() {
 
   function distributeToSuppliers(houseData, suppliersData) {
 
-/*     console.log(houseData)
- */   const filtered = suppliersData.filter((x) => { if (houseData.suppliers.includes(x.name)) { return x } })
+    const filtered = suppliersData.filter((x) => { if (houseData.suppliers.includes(x.name)) { return x } })
     const totalWeight = filtered.reduce((acc, supplier) => acc + supplier.weight, 0);
     return suppliersData.map((supplier) => {
 
@@ -61,10 +59,13 @@ function App() {
 
         return {
           name: supplier.name,
+          houseName: houseData.casino,
+
           image: supplier.image,
           players: Math.floor(houseData.players * portion),
           revenue: Math.floor(houseData.revenue * portion),
           payment: Math.floor((houseData.revenue * portion) * 0.2)
+
         };
 
       }
@@ -78,6 +79,7 @@ function App() {
 
 
   function distributeToGames(supplier, gamesData) {
+
     const today = new Date();
     const day = today.getDate();
     const hour = today.getHours();
@@ -118,7 +120,11 @@ function App() {
       setLoaded(true)
 
       return {
+
+
         name: game.name,
+        houseName: supplier.houseName,
+        supplierName: supplier.name,
         image: game.image,
         players: playersForGame,
         revenue: revenueForGame,
@@ -151,20 +157,21 @@ function App() {
         suppliers: houseSuppliers,
       };
     });
+
     setHousesData(newHousesData);
+
   }, []);
 
 
-  
+
   return (
     <>
 
       <Router>
+        <Nav/>
         <Routes>
-
           <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} /> : ''} />
-          <Route path="/fornecedores" element={loaded ? <FornecedorCard data={housesData} /> : ''} />
-          <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame}/>} />
+          <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} />} />
 
         </Routes>
       </Router>

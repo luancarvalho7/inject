@@ -2,14 +2,22 @@
 
 
 #terminalSection{
-    width: fit-content;
+ 
+    transition: all 0.5s;
+    width: 100%;
     position: absolute;
-    transform: translateY(17px);
+}
+.t-beforeanim{
+    transform: scale(0.1);
+    opacity: 0;
+}
+.t-afteranim{
+    transform: scale(1);
 }
 #terminal{
     border-radius: 10px;
-    width: fit-content;
-
+    width: 100%;
+    box-sizing: border-box;
     min-height: 162px;
     padding: 10px 7px;
     border-radius: 6px;
@@ -94,12 +102,14 @@
 }
 .success-content span{
     font-size: 30px;
+    font-weight: 700;
 }
 .Time-Left{
     font-size: 11px;
-    margin-top: -9px;
+    margin-top: -3px;
 }
 .sucess-button{
+    cursor: pointer;
     width: 105%;
     height: 25px;
     border-radius: 99px;
@@ -110,6 +120,16 @@
     font-weight: bold;
     border: 1px;
     margin-top: 10px;
+}
+.hidden{
+    display: none;
+}
+.End-Info{
+    max-width: 250px;
+    text-align: center;
+    font-size: 12px;
+    color: #B4BCD0;
+    padding: 5px;
 }
 
 @keyframes showSuccessAnimation {
