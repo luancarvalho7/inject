@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-export function Timer() {
-  const [minutes, setMinutes] = useState(Math.floor(Math.random() * (12 - 3 + 1) + 3));
+export function Timer({ hideClassesCallback }) {
+  const [minutes, setMinutes] = useState(1);
   const [seconds, setSeconds] = useState(0);
   const [timeIsUp, setTimeIsUp] = useState(false);
 
@@ -13,6 +13,7 @@ export function Timer() {
           if (minutes === 0) {
             clearInterval(interval);
             setTimeIsUp(true);
+            hideClassesCallback(true); // Ocultar as classes em terminal.jsx
           } else {
             setMinutes(minutes - 1);
             setSeconds(59);
@@ -23,6 +24,7 @@ export function Timer() {
       }, 1000);
     } else {
       setTimeIsUp(true);
+      hideClassesCallback(true); // Ocultar as classes em terminal.jsx
     }
 
     return () => {
@@ -33,7 +35,7 @@ export function Timer() {
   return (
     <div>
       {timeIsUp ? (
-        <p>
+        <p className='End-Info'>
           Seu tempo acabou, retorne para a página inicial e espere no mínimo 2 minutos antes de jogar no mesmo jogo.
         </p>
       ) : (

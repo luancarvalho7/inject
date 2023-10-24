@@ -7,6 +7,11 @@ export function Terminal({ house, supplier, game }) {
     return inputString.replace(/\s+/g, '_').toLowerCase();
   }
 
+  const [hideClasses, setHideClasses] = useState(false);
+  const hideClassesCallback = (shouldHide) => {
+    setHideClasses(shouldHide);
+  };
+
   const fHouse = formatString(house);
   const fSupplier = formatString(supplier);
   const fGame = formatString(game);
@@ -85,9 +90,9 @@ export function Terminal({ house, supplier, game }) {
           <div className="success-content">
             <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png" alt="Ícone de check" width={"55px"}/>
             <h1 className='Sucess-sucess-overlay'>Sucesso!</h1>
-            <h6 className='Frustrated-Info'>O sistema da SPRIBE ira te identificar como um jogador "frustrado" e vai fazer com que você comece a ganhar nos próximos:</h6>
-            <Timer/>
-            <p className='Time-Left'>tempo restante </p>
+            <h6 className={`Frustrated-Info ${hideClasses ? 'hidden' : ''}`}>O sistema da SPRIBE ira te identificar como um jogador "frustrado" e vai fazer com que você comece a ganhar nos próximos:</h6>
+            <Timer hideClassesCallback={hideClassesCallback} />
+            <p className={`Time-Left ${hideClasses ? 'hidden' : ''}`}>tempo restante </p>
             <a href='#iframe'><button className="sucess-button">Jogar Agora</button></a>
           </div>
         </div>
