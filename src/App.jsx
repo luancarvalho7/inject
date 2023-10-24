@@ -164,7 +164,6 @@ function App() {
         <Routes>
 
           <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} /> : ''} />
-          <Route path="/fornecedores" element={loaded ? <FornecedorCard data={housesData} /> : ''} />
           <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame}/>} />
 
         </Routes>
