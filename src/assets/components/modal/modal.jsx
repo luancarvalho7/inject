@@ -1,7 +1,7 @@
 import React from 'react';
 import './modal.css';
 
-export function Modal({ isOpen, onClose, title, content }) {
+function Modal({ isOpen, onClose, title, content }) {
     if (!isOpen) return null;
 
     return (
@@ -18,3 +18,5 @@ export function Modal({ isOpen, onClose, title, content }) {
         </div>
     );
 }
+
+export default Modal;

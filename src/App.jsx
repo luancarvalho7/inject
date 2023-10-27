@@ -14,7 +14,7 @@ import { GameCard } from './assets/components/cards/gameCard';
 import { Home } from './assets/pages/home';
 import { Frustrar } from './assets/components/frustrar/frustrar.jsx';
 import { FornecedorCard } from './assets/pages/suppliers';
-import { Modal } from './assets/components/modal/modal';
+import  Modal  from './assets/components/modal/modal';
 import { Nav } from './assets/components/nav/nav';
 import { ScrollToTop } from './assets/utils/scrollToTop';
 
@@ -176,7 +176,7 @@ function App() {
         <Routes>
           <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} /> : ''} />
           <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} />} />
-
+          <Route path="/modal" element={<Modal />} />
         </Routes>
       </Router>
       
