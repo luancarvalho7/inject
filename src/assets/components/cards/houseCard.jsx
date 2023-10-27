@@ -6,8 +6,11 @@ import Modal from '../modal/modal';
 
 export function HouseCard({ data, setShowModal, currentHouse, setCurrentHouse, vipAccess }) {
 
-    console.log(data)
-    const [BullsBet, setBullsBet] = useState(false);
+    const [BullsBet, setBullsBet] = useState(null);
+
+    useEffect(() => { 
+        console.log('BullsBet VALUE:' + BullsBet +  ' ' + currentHouse)
+    }, [currentHouse])
 
     function formatBigNumber(number) {
         if (number >= 1e6) {
@@ -19,20 +22,23 @@ export function HouseCard({ data, setShowModal, currentHouse, setCurrentHouse, v
         }
     }
 
-    useEffect(() => {
-        if (data.casino === currentHouse) {
-            setBullsBet(true);
+    useEffect (()=>{
+        if(currentHouse != data.casino){
+            setBullsBet(false)
+        }else{
+            setBullsBet(true)
         }
-    }, []);
+    },[currentHouse])
 
     const handleCardClick = () => {
-        if(vipAccess){
-            console.log('fds')
+        if (vipAccess) {
             setCurrentHouse(data.casino)
-        }else{
-        if (data.casino != currentHouse) {
-            setShowModal(true);
-        }}
+            setBullsBet(true)
+        } else {
+            if (data.casino != currentHouse) {
+                setShowModal(true);
+            }
+        }
 
     };
 

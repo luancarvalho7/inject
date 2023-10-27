@@ -25,6 +25,8 @@ function App() {
   const [loaded, setLoaded] = useState(false)
   const [housesData, setHousesData] = useState(data);
   const [currentHouse, setCurrentHouse] = useState('BullsBet')
+  const [currentSupplier, setCurrentSupplier] = useState('Spribe')
+
 
   const [selectedGame, setSGame] = useState('')
   const [showModal, setShowModal] = useState(false);
@@ -162,11 +164,10 @@ function App() {
 
   }, []);
 
-  useEffect (()=>{
 
-    console.log(showModal)
-  }, [showModal])
-
+useEffect(()=>{
+  console.log(currentSupplier)
+}, [currentSupplier])
 
   return (
     <>
@@ -176,7 +177,9 @@ function App() {
         <Nav/>
         <ScrollToTop/>
         <Routes>
-          <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse}/> : ''} />
+          <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse}
+          currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier}
+            /> : ''} />
           <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} />} />
           <Route path="/modal" element={<Modal />} />
         </Routes>
