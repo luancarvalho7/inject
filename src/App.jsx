@@ -22,11 +22,9 @@ import { ScrollToTop } from './assets/utils/scrollToTop';
 
 function App() {
 
-
-
-
   const [loaded, setLoaded] = useState(false)
   const [housesData, setHousesData] = useState(data);
+  const [currentHouse, setCurrentHouse] = useState('BullsBet')
 
   const [selectedGame, setSGame] = useState('')
   const [showModal, setShowModal] = useState(false);
@@ -178,7 +176,7 @@ function App() {
         <Nav/>
         <ScrollToTop/>
         <Routes>
-          <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} /> : ''} />
+          <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse}/> : ''} />
           <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} />} />
           <Route path="/modal" element={<Modal />} />
         </Routes>

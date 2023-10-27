@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 
 import Modal from '../modal/modal';
 
-export function HouseCard({ data, setShowModal }) {
+export function HouseCard({ data, setShowModal, currentHouse, setCurrentHouse, vipAccess }) {
+
+    console.log(data)
     const [BullsBet, setBullsBet] = useState(false);
 
     function formatBigNumber(number) {
@@ -18,15 +20,20 @@ export function HouseCard({ data, setShowModal }) {
     }
 
     useEffect(() => {
-        if (data.casino === "BullsBet") {
+        if (data.casino === currentHouse) {
             setBullsBet(true);
         }
     }, []);
 
     const handleCardClick = () => {
-        if (!BullsBet) {
+        if(vipAccess){
+            console.log('fds')
+            setCurrentHouse(data.casino)
+        }else{
+        if (data.casino != currentHouse) {
             setShowModal(true);
-        }
+        }}
+
     };
 
     const handleModalClose = () => {
