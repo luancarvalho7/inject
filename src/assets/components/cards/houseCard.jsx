@@ -60,19 +60,6 @@ export function HouseCard({ data, setShowModal }) {
                 </div>
             </div>
 
-            {showModal && (
-                <Modal
-                    isOpen={true}
-                    onClose={handleModalClose}
-                    title="Adquira o aplicativo VIP"
-                    content={
-                        <>
-                            <p>Obtenha acesso a recursos VIP exclusivos.</p>
-                            <a href='sexo'>Comprar</a>
-                        </>
-                    }
-                />
-            )}
         </>
     )
 }

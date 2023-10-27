@@ -29,7 +29,7 @@ function App() {
   const [housesData, setHousesData] = useState(data);
 
   const [selectedGame, setSGame] = useState('')
-  const [isOpen, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   /*   randomizer start
    */
@@ -164,13 +164,17 @@ function App() {
 
   }, []);
 
+  useEffect (()=>{
+
+    console.log(showModal)
+  }, [showModal])
 
 
   return (
     <>
 
       <Router>
-        <Modal isOpen={isOpen} onClose={onClose} title={title} content={content} />
+        <Modal isOpen={showModal} setShowModal={setShowModal} title={'Random'} content={'Xddd'} />
         <Nav/>
         <ScrollToTop/>
         <Routes>

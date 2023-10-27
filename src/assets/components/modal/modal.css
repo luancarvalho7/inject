@@ -1,28 +1,30 @@
 /* modal.css */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro com transparência */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999; /* Garante que o modal esteja acima de outros elementos */
-}
 
+.modal {
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  top: 50%;
+  width: fit-content;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  padding: 1px;
+  border-radius: 8px;
+  color: white;
+  background: linear-gradient(148deg, #FBFBFC -26.97%, #000511 64.87%);
+}
 .modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 80%; /* Define a largura máxima do modal */
-  text-align: center; /* Centraliza o conteúdo dentro do modal */
+  padding: 26px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(0deg, #001C60 0%, #000511 59.23%);
+
 }
 
 .modal-header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;

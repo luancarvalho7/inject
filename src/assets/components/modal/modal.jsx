@@ -3,16 +3,18 @@ import './modal.css';
 
 import diamond from '../../images/diamond.png'
 
-function Modal({ isOpen, onClose }) {
+function Modal({ isOpen, setShowModal }) {
     if (!isOpen) return null;
 
+    function onClose() {
+        setShowModal(false)
+    }
     return (
-        <div className="modal-background">
+        <div className="modal">
             <div className="modal-content">
                 <div className="modal-header">
                     <img src={diamond} alt="Acesso VIP" />
                     <h1><strong>Acesso VIP</strong></h1>
-                    <button onClick={onClose} className="close-button">X</button>
                 </div>
                 <div className="modal-body">
                     <p>Monitore todas as casas, tenha acesso ao sistema de todos os fornecedores e veja os melhores jogos.</p>
