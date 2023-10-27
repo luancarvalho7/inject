@@ -82,7 +82,7 @@ export function Home({ data, setSGame, selectedGame, setShowModal}) {
                 >
                     {data[0].suppliers.map((current, index) =>
                         <SwiperSlide key={index}>
-                            <SupplierCard data={current} />
+                            <SupplierCard data={current} setShowModal={setShowModal} />
                         </SwiperSlide>
                     )}
                 </Swiper>

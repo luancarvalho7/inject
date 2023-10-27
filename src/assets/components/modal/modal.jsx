@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import './modal.css';
 
 import diamond from '../../images/diamond.png'
@@ -9,11 +10,20 @@ function Modal({ isOpen, setShowModal }) {
     function onClose() {
         setShowModal(false)
     }
+
+    const [animRun, setAnimRun] = useState(false)
+
+    useEffect(()=>{
+
+        setTimeout(()=>{setAnimRun(true)}, 5)
+
+    }, [])
     return (
-        <div className="modal">
+        <div className={ animRun ? `modalOverlay` : `modalOverlay mo-before`}>
+        <div className={ animRun ? `modal` : `modal m-before`}>
             <div className="modal-content">
                 <div className="modal-header">
-                    <img src={diamond} alt="Acesso VIP" />
+                    <img src={diamond}width={150} alt="Acesso VIP" />
                     <h1><strong>Acesso VIP</strong></h1>
                 </div>
                 <div className="modal-body">
@@ -24,6 +34,7 @@ function Modal({ isOpen, setShowModal }) {
                     <button className="close-button" onClick={onClose}>Não, obrigado</button>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

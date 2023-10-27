@@ -2,7 +2,7 @@
 import './selectCard.css'
 import { Stats } from '../stats/stats'
 import { useState, useEffect } from 'react';
-export function SupplierCard({data}) {
+export function SupplierCard({data, setShowModal}) {
 
     const [Spribe, setSpribe] = useState(false)
     function formatBigNumber(number) {
@@ -19,8 +19,14 @@ export function SupplierCard({data}) {
         setSpribe(true)
     }}, [])
 
+    const handleCardClick = () => {
+        if (data.name != "Spribe") {
+            setShowModal(true);
+        }
+    };
+
     return (
-        <div className={Spribe ? "supplierCard selectCard card-enabled" : "supplierCard selectCardBlocked card-enabled"}>
+        <div className={Spribe ? "supplierCard selectCard card-enabled" : "supplierCard selectCardBlocked card-enabled"} onClick={handleCardClick}>
             <div className={Spribe ? "sc-content" : "sc-content-blocked"}>
                 <img src={data.image} className={Spribe ? "image" : "image-blocked"} />
                 <div className={Spribe ? "houseData supp-houseD" : "houseData supp-houseD lowopacity"}>
