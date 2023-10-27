@@ -4,9 +4,8 @@ import { useState, useEffect } from 'react';
 
 import Modal from '../modal/modal';
 
-export function HouseCard({ data }) {
+export function HouseCard({ data, setShowModal }) {
     const [BullsBet, setBullsBet] = useState(false);
-    const [showModal, setShowModal] = useState(false);
 
     function formatBigNumber(number) {
         if (number >= 1e6) {
@@ -24,17 +23,21 @@ export function HouseCard({ data }) {
         }
     }, []);
 
-    const handleClick = () => {
+    const handleCardClick = () => {
         if (!BullsBet) {
             setShowModal(true);
         }
+    };
+
+    const handleModalClose = () => {
+        setShowModal(false);
     };
 
     return (
         <>
             <div
                 className={BullsBet ? "houseCard selectCard card-enabled" : "houseCard selectCardBlocked card-enabled"}
-                onClick={handleClick}
+                onClick={handleCardClick}
             >
                 <div className={BullsBet ? "sc-content" : "sc-content-blocked"}>
                     <img src={data.image} className={BullsBet ? "image" : "image-blocked"} />
@@ -57,17 +60,19 @@ export function HouseCard({ data }) {
                 </div>
             </div>
 
-            <Modal
-                isOpen={showModal}
-                onClose={() => setShowModal(false)}
-                title="Adquira o aplicativo VIP"
-                content={
-                    <>
-                        <p>Obtenha acesso a recursos VIP exclusivos.</p>
-                        <a href='sexo'>Comprar</a>
-                    </>
-                }
-            />
+            {showModal && (
+                <Modal
+                    isOpen={true}
+                    onClose={handleModalClose}
+                    title="Adquira o aplicativo VIP"
+                    content={
+                        <>
+                            <p>Obtenha acesso a recursos VIP exclusivos.</p>
+                            <a href='sexo'>Comprar</a>
+                        </>
+                    }
+                />
+            )}
         </>
     )
 }

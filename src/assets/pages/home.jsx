@@ -24,7 +24,7 @@ import { Nav } from '../components/nav/nav.jsx';
 
 
 
-export function Home({ data, setSGame, selectedGame }) {
+export function Home({ data, setSGame, selectedGame, setShowModal}) {
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -63,7 +63,7 @@ export function Home({ data, setSGame, selectedGame }) {
                 >
                     {data.map((current, index) =>
                         <SwiperSlide key={index}>
-                            <HouseCard data={current} />
+                            <HouseCard data={current} setShowModal={setShowModal} />
                         </SwiperSlide>
                     )}
                 </Swiper>
