@@ -24,7 +24,7 @@ import { Nav } from '../components/nav/nav.jsx';
 
 
 
-export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse, setCurrentHouse}) {
+export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse, setCurrentHouse, currentSupplier, setCurrentSupplier}) {
 
 
     const vipAccess = true 
@@ -82,9 +82,9 @@ export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse,
                     spaceBetween={16}
                     className="mySwiper"
                 >
-                    {data[0].suppliers.map((current, index) =>
+                    {data.find((current) => current.casino === currentHouse).suppliers.map((current, index) =>
                         <SwiperSlide key={index}>
-                            <SupplierCard data={current} setShowModal={setShowModal} />
+                            <SupplierCard data={current} setShowModal={setShowModal} currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier} vipAccess={vipAccess} />
                         </SwiperSlide>
                     )}
                 </Swiper>
@@ -103,7 +103,7 @@ export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse,
                     spaceBetween={16}
                     className="mySwiper"
                 >{
-                        data[0].suppliers[1].games.map((current, index) =>
+                    data.find((current) => current.casino === currentHouse).suppliers.find((current) => current.name === currentSupplier).games.map((current, index) =>
                             <SwiperSlide key={index}>
                                 <GameCard data={current}
                                     setSGame={setSGame} />

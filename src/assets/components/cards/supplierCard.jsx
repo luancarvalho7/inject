@@ -2,7 +2,7 @@
 import './selectCard.css'
 import { Stats } from '../stats/stats'
 import { useState, useEffect } from 'react';
-export function SupplierCard({data, setShowModal}) {
+export function SupplierCard({data, setShowModal, currentSupplier, setCurrentSupplier, vipAccess}) {
 
     const [Spribe, setSpribe] = useState(false)
     function formatBigNumber(number) {
@@ -15,13 +15,22 @@ export function SupplierCard({data, setShowModal}) {
         }
     }
 
-    useEffect(() => {if (data.name == "Spribe"){
+    useEffect(() => {if (currentSupplier != data.name){
+        setSpribe(false)
+    }
+    else{
         setSpribe(true)
-    }}, [])
+
+    }
+}, [currentSupplier])
 
     const handleCardClick = () => {
-        if (data.name != "Spribe") {
+        if (data.name != currentSupplier && vipAccess == false) {
             setShowModal(true);
+        }
+        else{
+            setCurrentSupplier(data.name)
+            setSpribe(true)
         }
     };
 
