@@ -22,7 +22,8 @@
   padding: 1px;
   border-radius: 8px;
   color: white;
-  background: linear-gradient(156deg, #FFF 0%, rgba(99, 127, 197, 0.00) 84.66%);}
+  background: linear-gradient(156deg, #FFF 0%, rgba(99, 127, 197, 0.00) 84.66%);
+  max-width: 280px;}
 .modal-content {
   padding: 0px 26px 26px 26px;
   border-radius: 8px;
@@ -80,4 +81,8 @@
  background: none;
  outline: none;
  color: white;
+}
+.vip-button a{
+  color: white;
+  text-decoration: none;
 }
