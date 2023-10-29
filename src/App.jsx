@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import data from './assets/data/data.json';
@@ -26,6 +26,8 @@ function App() {
   const [housesData, setHousesData] = useState(data);
   const [currentHouse, setCurrentHouse] = useState('BullsBet')
   const [currentSupplier, setCurrentSupplier] = useState('Spribe')
+  const hasNavigatedAway = useRef(false); // flag variable
+
 
 
   const [selectedGame, setSGame] = useState('')
@@ -178,9 +180,9 @@ useEffect(()=>{
         <ScrollToTop/>
         <Routes>
           <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse}
-          currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier}
+          currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier} hasNavigatedAway={hasNavigatedAway}
             /> : ''} />
-          <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} />} />
+          <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} hasNavigatedAway={hasNavigatedAway} />} />
           <Route path="/modal" element={<Modal />} />
         </Routes>
       </Router>

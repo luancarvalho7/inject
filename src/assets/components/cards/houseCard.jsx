@@ -3,14 +3,14 @@ import { Stats } from '../stats/stats'
 import { useState, useEffect } from 'react';
 
 import Modal from '../modal/modal';
+import { render } from 'react-dom';
 
-export function HouseCard({ data, setShowModal, currentHouse, setCurrentHouse, vipAccess }) {
+export function HouseCard({ data, setShowModal, currentHouse, setCurrentHouse, vipAccess, currentSupplier, setCurrentSupplier }) {
 
     const [BullsBet, setBullsBet] = useState(null);
 
-    useEffect(() => { 
-        console.log('BullsBet VALUE:' + BullsBet +  ' ' + currentHouse)
-    }, [currentHouse])
+    useEffect(() => {
+    }, [BullsBet])
 
     function formatBigNumber(number) {
         if (number >= 1e6) {
@@ -22,18 +22,22 @@ export function HouseCard({ data, setShowModal, currentHouse, setCurrentHouse, v
         }
     }
 
-    useEffect (()=>{
-        if(currentHouse != data.casino){
-            setBullsBet(false)
-        }else{
-            setBullsBet(true)
-        }
-    },[currentHouse])
+ 
 
     const handleCardClick = () => {
+
         if (vipAccess) {
-            setCurrentHouse(data.casino)
-            setBullsBet(true)
+            if (data.suppliers.some(supplier => supplier.name === currentSupplier)) {
+
+                setCurrentHouse(data.casino)
+
+            }
+            else {
+                setCurrentSupplier(data.suppliers[0].name)
+                setCurrentHouse(data.casino)
+
+            }
+
         } else {
             if (data.casino != currentHouse) {
                 setShowModal(true);
@@ -45,6 +49,14 @@ export function HouseCard({ data, setShowModal, currentHouse, setCurrentHouse, v
     const handleModalClose = () => {
         setShowModal(false);
     };
+
+    useEffect(() => {
+        if (currentHouse != data.casino) {
+            setBullsBet(false)
+        } else {
+            setBullsBet(true)
+        }
+    }, [currentHouse, currentSupplier])
 
     return (
         <>

@@ -2,7 +2,7 @@
 import './selectCard.css'
 import { Stats } from '../stats/stats'
 import { useState, useEffect } from 'react';
-export function SupplierCard({data, setShowModal, currentSupplier, setCurrentSupplier, vipAccess}) {
+export function SupplierCard({data, setShowModal, currentHouse, currentSupplier, setCurrentSupplier, vipAccess}) {
 
     const [Spribe, setSpribe] = useState(false)
     function formatBigNumber(number) {
@@ -22,7 +22,7 @@ export function SupplierCard({data, setShowModal, currentSupplier, setCurrentSup
         setSpribe(true)
 
     }
-}, [currentSupplier])
+}, [currentSupplier, currentHouse])
 
     const handleCardClick = () => {
         if (data.name != currentSupplier && vipAccess == false) {

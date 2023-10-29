@@ -127,7 +127,7 @@ export function Frustrar({ data }) {
             <Scrollbar/>
             <div className="box">
                 <div className={`box-content ${showTerminal ? "none" : ""}`}>
-                    <h1 className="game-title">Mines</h1>
+                    <h1 className="game-title">{data==null? '' : data.name}</h1>
                     <div className="fBarFrustrar">
                         <FrustrarProgressBar valorVariavel={newGamePercentage} quality={quality} />
                     </div>

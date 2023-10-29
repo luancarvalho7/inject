@@ -24,10 +24,10 @@ import { Nav } from '../components/nav/nav.jsx';
 
 
 
-export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse, setCurrentHouse, currentSupplier, setCurrentSupplier}) {
+export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse, setCurrentHouse, currentSupplier, setCurrentSupplier }) {
 
 
-    const vipAccess = true 
+    const vipAccess = true
     const location = useLocation();
     const navigate = useNavigate();
     const hasNavigatedAway = useRef(false); // flag variable
@@ -52,7 +52,7 @@ export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse,
 
     return <>
 
-        
+
         {/* Escolha sua casa de apostas */}
         <section className='hSection'>
             <div className="miniSectionTitle marginSpacings"><img src={chooseHouse} /><p className='mainText'>Escolha a Casa de Apostas</p></div>
@@ -65,7 +65,7 @@ export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse,
                 >
                     {data.map((current, index) =>
                         <SwiperSlide key={index}>
-                            <HouseCard data={current} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse} vipAccess={vipAccess}/>
+                            <HouseCard data={current} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse} vipAccess={vipAccess} setCurrentSupplier={setCurrentSupplier} currentSupplier={currentSupplier} />
                         </SwiperSlide>
                     )}
                 </Swiper>
@@ -82,11 +82,15 @@ export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse,
                     spaceBetween={16}
                     className="mySwiper"
                 >
-                    {data.find((current) => current.casino === currentHouse).suppliers.map((current, index) =>
-                        <SwiperSlide key={index}>
-                            <SupplierCard data={current} setShowModal={setShowModal} currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier} vipAccess={vipAccess} />
-                        </SwiperSlide>
-                    )}
+                    {
+                        data.find((current) => current.casino === currentHouse).suppliers.some(supplier => supplier.name === currentSupplier) ?
+                            data.find((current) => current.casino === currentHouse).suppliers.map((current, index) =>
+
+                                <SwiperSlide key={index}>
+                                    <SupplierCard data={current} currentHouse={currentHouse} setShowModal={setShowModal} currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier} vipAccess={vipAccess} />
+                                </SwiperSlide>
+                            ) : ''
+                    }
                 </Swiper>
             }
         </section>
@@ -103,7 +107,7 @@ export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse,
                     spaceBetween={16}
                     className="mySwiper"
                 >{
-                    data.find((current) => current.casino === currentHouse).suppliers.find((current) => current.name === currentSupplier).games.map((current, index) =>
+                        data.find((current) => current.casino === currentHouse).suppliers.find((current) => current.name === currentSupplier).games.map((current, index) =>
                             <SwiperSlide key={index}>
                                 <GameCard data={current}
                                     setSGame={setSGame} />

@@ -9,15 +9,15 @@ export function Nav() {
 
     const navigate = useNavigate()
 
-    function backHome(){
+    function backHome() {
         navigate('/')
     }
 
-    return(
+    return (
         <nav className="vip-container">
-        <img src={logo} height={120} onClick={backHome} />
-        <button className="vip-button">Acesso VIP <img src={arrow} /></button>
-    </nav>
+            <img src={logo} height={120} onClick={backHome} />
+            <a href='https://checkout.perfectpay.com.br/pay/PPU38CNDESA' target='_blank'><button className="vip-button">Acesso VIP <img src={arrow} /></button></a>
+        </nav >
     )
 
 }
