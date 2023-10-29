@@ -5,7 +5,13 @@ import logo from '../../images/logo.png'
 
 
 import { useNavigate } from 'react-router-dom';
-export function Nav() {
+import { useEffect } from 'react';
+export function Nav({ vipAccess }) {
+
+    useEffect(() => {
+        console.log(vipAccess)
+    }, [vipAccess])
+
 
     const navigate = useNavigate()
 
@@ -16,7 +22,12 @@ export function Nav() {
     return (
         <nav className="vip-container">
             <img src={logo} height={120} onClick={backHome} />
-            <a href='https://checkout.perfectpay.com.br/pay/PPU38CNDESA' target='_blank'><button className="vip-button">Acesso VIP <img src={arrow} /></button></a>
+
+            {
+
+                vipAccess ? <button className="vip-button"> Membro VIP</button> : <a href='https://checkout.perfectpay.com.br/pay/PPU38CNDESA' target='_blank'><button className="vip-button">Acesso VIP <img src={arrow} /></button></a>
+
+            }
         </nav >
     )
 

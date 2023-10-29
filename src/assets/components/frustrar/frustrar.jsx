@@ -12,7 +12,7 @@ import { Nav } from "../nav/nav";
 import { FrustrarProgressBar } from "./frustrarProgressBar/frustrarProgressBar";
 import { Scrollbar } from "../scrollbar/scrollbar";
 
-export function Frustrar({ data }) {
+export function Frustrar({ data, vipAccess }) {
 
     console.log(data)
     const navigate = useNavigate();
@@ -34,9 +34,12 @@ export function Frustrar({ data }) {
 
     useEffect(() => {
         if (typeof data === 'string') {
-            navigate('/');
+            if(vipAccess==true){
+
+            };
         }
         if (data == null) {
+            
             navigate('/');
         }
         if (data !== 'string' && data !== null) {

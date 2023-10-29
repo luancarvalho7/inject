@@ -14,7 +14,7 @@ import { GameCard } from './assets/components/cards/gameCard';
 import { Home } from './assets/pages/home';
 import { Frustrar } from './assets/components/frustrar/frustrar.jsx';
 import { FornecedorCard } from './assets/pages/suppliers';
-import  Modal  from './assets/components/modal/modal';
+import Modal from './assets/components/modal/modal';
 import { Nav } from './assets/components/nav/nav';
 import { ScrollToTop } from './assets/utils/scrollToTop';
 
@@ -22,6 +22,7 @@ import { ScrollToTop } from './assets/utils/scrollToTop';
 
 function App() {
 
+  const [vipAccess, setVipAccess] = useState(false)
   const [loaded, setLoaded] = useState(false)
   const [housesData, setHousesData] = useState(data);
   const [currentHouse, setCurrentHouse] = useState('BullsBet')
@@ -167,26 +168,29 @@ function App() {
   }, []);
 
 
-useEffect(()=>{
-  console.log(currentSupplier)
-}, [currentSupplier])
+  useEffect(() => {
+    console.log(vipAccess)
+  }, [vipAccess])
 
   return (
     <>
 
       <Router>
         <Modal isOpen={showModal} setShowModal={setShowModal} title={'Random'} content={'Xddd'} />
-        <Nav/>
-        <ScrollToTop/>
+        <Nav vipAccess={vipAccess}/>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse}
-          currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier} hasNavigatedAway={hasNavigatedAway}
-            /> : ''} />
-          <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} hasNavigatedAway={hasNavigatedAway} />} />
+            currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier} hasNavigatedAway={hasNavigatedAway} vipAccess={vipAccess} setVipAccess={setVipAccess}
+          /> : ''} />
+          <Route path="/verberat" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse}
+            currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier} hasNavigatedAway={hasNavigatedAway} vipAccess={true} setVipAccess={setVipAccess}
+          /> : ''} />
+          <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} hasNavigatedAway={hasNavigatedAway} vipAccess={vipAccess}/>} />
           <Route path="/modal" element={<Modal />} />
         </Routes>
       </Router>
-      
+
     </>
   );
 

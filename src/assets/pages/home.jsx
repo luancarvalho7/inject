@@ -24,10 +24,10 @@ import { Nav } from '../components/nav/nav.jsx';
 
 
 
-export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse, setCurrentHouse, currentSupplier, setCurrentSupplier }) {
+export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse, setCurrentHouse, currentSupplier, setCurrentSupplier, vipAccess, setVipAccess }) {
 
 
-    const vipAccess = true
+
     const location = useLocation();
     const navigate = useNavigate();
     const hasNavigatedAway = useRef(false); // flag variable
@@ -41,14 +41,22 @@ export function Home({ data, setSGame, selectedGame, setShowModal, currentHouse,
     }, [selectedGame]);
 
     useEffect(() => {
-        if (location.pathname === '/' && hasNavigatedAway.current) {
-            // Only clear if we have navigated away before
+        if ((location.pathname === '/' || location.pathname === '/verberat') && hasNavigatedAway.current) {
+
             setSGame(null); // Replace this with your logic to clear the selectedGame
             hasNavigatedAway.current = false; // Reset the flag
         }
     }, [location]);
 
+    useEffect(() => {
 
+        if (location.pathname == "/verberat") {
+            setVipAccess(true)
+        }
+        if (location.pathname == "/" && vipAccess) {
+            navigate("/verberat")
+        }
+    }, [])
 
     return <>
 
