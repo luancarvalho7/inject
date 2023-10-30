@@ -18,8 +18,8 @@
     "revenue": 48500000,
     "suppliers": [
       "PG Soft",
-      "Spribe",
       "pragmaticplay",
+      "Spribe",
       "Evoplay"
     ],
     "image": "https://i.postimg.cc/TYXKrCv3/playpix.webp",
@@ -30,10 +30,10 @@
     "players": 1900000,
     "revenue": 7220000,
     "suppliers": [
-      "PG Soft",
-      "Spribe",
-      "pragmaticplay",
       "netgaming",
+      "pragmaticplay",
+      "Spribe",
+      "PG Soft",
       "Evoplay"
     ],
     "image": "https://i.postimg.cc/sD9vK739/realsbet.webp",
@@ -45,9 +45,9 @@
     "revenue": 31768000,
     "suppliers": [
       "PG Soft",
-      "Spribe",
+      "Evoplay",
       "pragmaticplay",
-      "Evoplay"
+      "Spribe"
     ],
     "image": "https://i.postimg.cc/3N2WsDmh/greenbets.webp",
     "link": "https://afiliados.greenbets.io/visit/?bta=50201&brand=greenbetsio"
@@ -71,10 +71,10 @@
     "players": 7100000,
     "revenue": 26980000,
     "suppliers": [
-      "PG Soft",
-      "Spribe",
       "pragmaticplay",
+      "PG Soft",
       "netgaming",
+      "Spribe",
       "Evoplay"
     ],
     "image": "https://i.postimg.cc/0ykr4jQg/mma.webp",
