@@ -12,7 +12,7 @@ import { Nav } from "../nav/nav";
 import { FrustrarProgressBar } from "./frustrarProgressBar/frustrarProgressBar";
 import { Scrollbar } from "../scrollbar/scrollbar";
 
-export function Frustrar({ data }) {
+export function Frustrar({ data, vipAccess }) {
 
     console.log(data)
     const navigate = useNavigate();
@@ -34,9 +34,12 @@ export function Frustrar({ data }) {
 
     useEffect(() => {
         if (typeof data === 'string') {
-            navigate('/');
+            if(vipAccess==true){
+
+            };
         }
         if (data == null) {
+            
             navigate('/');
         }
         if (data !== 'string' && data !== null) {
@@ -127,7 +130,7 @@ export function Frustrar({ data }) {
             <Scrollbar/>
             <div className="box">
                 <div className={`box-content ${showTerminal ? "none" : ""}`}>
-                    <h1 className="game-title">Mines</h1>
+                    <h1 className="game-title">{data==null? '' : data.name}</h1>
                     <div className="fBarFrustrar">
                         <FrustrarProgressBar valorVariavel={newGamePercentage} quality={quality} />
                     </div>

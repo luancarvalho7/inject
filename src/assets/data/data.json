@@ -9,7 +9,8 @@
       "pragmaticplay",
       "Evoplay"
     ],
-    "image": "https://i.postimg.cc/3RW6RXxX/bullsbet.webp"
+    "image": "https://i.postimg.cc/3RW6RXxX/bullsbet.webp",
+    "link": "https://bullsbet.net/?ref=0a450b95e2b4&src=jeppyefuuruemdrprci&utm_source=135500"
   },
   {
     "casino": "PlayPix",
@@ -17,24 +18,26 @@
     "revenue": 48500000,
     "suppliers": [
       "PG Soft",
-      "Spribe",
       "pragmaticplay",
+      "Spribe",
       "Evoplay"
     ],
-    "image": "https://i.postimg.cc/TYXKrCv3/playpix.webp"
+    "image": "https://i.postimg.cc/TYXKrCv3/playpix.webp",
+    "link": "https://playpix.com/affiliates/?btag=1439012"
   },
   {
     "casino": "RealsBet",
     "players": 1900000,
     "revenue": 7220000,
     "suppliers": [
-      "PG Soft",
-      "Spribe",
-      "pragmaticplay",
       "netgaming",
+      "pragmaticplay",
+      "Spribe",
+      "PG Soft",
       "Evoplay"
     ],
-    "image": "https://i.postimg.cc/sD9vK739/realsbet.webp"
+    "image": "https://i.postimg.cc/sD9vK739/realsbet.webp",
+    "link": "https://bullsbet.net/?ref=0a450b95e2b4&src=jeppyefuuruemdrprci&utm_source=135500"
   },
   {
     "casino": "GreenBets",
@@ -42,11 +45,12 @@
     "revenue": 31768000,
     "suppliers": [
       "PG Soft",
-      "Spribe",
+      "Evoplay",
       "pragmaticplay",
-      "Evoplay"
+      "Spribe"
     ],
-    "image": "https://i.postimg.cc/3N2WsDmh/greenbets.webp"
+    "image": "https://i.postimg.cc/3N2WsDmh/greenbets.webp",
+    "link": "https://afiliados.greenbets.io/visit/?bta=50201&brand=greenbetsio"
   },
   {
     "casino": "NutsBet",
@@ -59,20 +63,22 @@
       "netgaming",
       "Evoplay"
     ],
-    "image": "https://i.postimg.cc/pVj9h37S/nutsbet.webp"
+    "image": "https://i.postimg.cc/pVj9h37S/nutsbet.webp",
+    "link": "https://affiliates.nuts.bet/visit/?bta=36468&nci=5377"
   },
   {
     "casino": "MMAbet",
     "players": 7100000,
     "revenue": 26980000,
     "suppliers": [
-      "PG Soft",
-      "Spribe",
       "pragmaticplay",
+      "PG Soft",
       "netgaming",
+      "Spribe",
       "Evoplay"
     ],
-    "image": "https://i.postimg.cc/0ykr4jQg/mma.webp"
+    "image": "https://i.postimg.cc/0ykr4jQg/mma.webp",
+    "link": "https://bullsbet.net/?ref=0a450b95e2b4&src=jeppyefuuruemdrprci&utm_source=135500"
   },
   {
     "casino": "Esporte da Sorte",
@@ -80,8 +86,11 @@
     "revenue": 44840000,
     "suppliers": [
       "PG Soft",
-      "Spribe"
+      "Spribe",
+      "pragmaticplay",
+      "netgaming"
     ],
-    "image": "https://i.postimg.cc/TwzpNcyQ/esporte.webp"
+    "image": "https://i.postimg.cc/TwzpNcyQ/esporte.webp",
+    "link": "https://bullsbet.net/?ref=0a450b95e2b4&src=jeppyefuuruemdrprci&utm_source=135500"
   }
 ]
