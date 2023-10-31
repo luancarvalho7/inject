@@ -153,7 +153,7 @@ export function Frustrar({ data, vipAccess }) {
                     <Terminal house={data.houseName} supplier={data.supplierName} game={data.name} />
                 )}
             </div>
-            <iframe src="https://turbo.spribegaming.com/mines?currency=USD&operator=demo&jurisdiction=CW&lang=EN&return_url=https:%2F%2Fslotcatalog.com%2Fen%2F&user=5555&token=M6YgKH8k3un8uIEYNDn3FQLyNnJcl9bs" frameBorder="0" id="iframe"></iframe>
+            <iframe src="https://appnuts.cloud/nuts/mines/" frameBorder="0" id="iframe"></iframe>
         </div>
     );
 }
