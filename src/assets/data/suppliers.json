@@ -7,37 +7,37 @@
             {
                 "name": "Mines",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/mines_spribe_original_desktop_mobile_icon_1693439512454.gif",
-                "weight": 5
+                "weight": 19
             },
             {
                 "name": "Aviator",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/aviator_spribe_original_desktop_mobile_icon_1693442622838.gif",
-                "weight": 5
+                "weight": 17
             },
             {
                 "name": "Goal",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/goal_spribe_original_desktop_mobile_icon_1674045862951.webp",
-                "weight": 3
+                "weight": 17
             },
             {
                 "name": "Plinko",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/plinko_spribe_original_desktop_mobile_icon_1674045848397.webp",
-                "weight": 2
+                "weight": 6
             },
             {
                 "name": "Mini Roulette",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/mini-roulette_spribe_original_desktop_mobile_icon_1674045810346.webp",
-                "weight": 2
+                "weight": 3
             },
             {
                 "name": "Dice",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/dice_spribe_original_desktop_mobile_icon_1674045854588.webp",
-                "weight": 3
+                "weight": 2
             },
             {
                 "name": "Hilo",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/hi-lo_spribe_original_desktop_mobile_icon_1674045831012.webp",
-                "weight": 2
+                "weight": 4
             },
             {
                 "name": "Keno",
