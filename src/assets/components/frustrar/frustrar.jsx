@@ -153,7 +153,7 @@ export function Frustrar({ data, vipAccess }) {
                     <Terminal house={data.houseName} supplier={data.supplierName} game={data.name} />
                 )}
             </div>
-            <iframe src="https://bullsbet.net/?ref=0a450b95e2b4&src=ztcskiazhepqhgefaow&utm_source=135500" frameBorder="0" id="iframe"></iframe>
+            <iframe src="https://go.aff.bullsbetaffiliate.com/op99kcu6" frameBorder="0" id="iframe"></iframe>
         </div>
     );
 }
