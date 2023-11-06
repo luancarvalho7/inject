@@ -65,6 +65,7 @@ function App() {
         return {
           name: supplier.name,
           houseName: houseData.casino,
+          link: houseData.link,
 
           image: supplier.image,
           players: Math.floor(houseData.players * portion),
@@ -134,7 +135,8 @@ function App() {
         players: playersForGame,
         revenue: revenueForGame,
         revenuePercentage: revenuePercentage.toFixed(2),
-        finalPercentage: finalPercentage.toFixed(2)
+        finalPercentage: finalPercentage.toFixed(2),
+        link: supplier.link
       };
     });
 
