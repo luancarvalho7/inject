@@ -7,7 +7,7 @@
             {
                 "name": "Mines",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/mines_spribe_original_desktop_mobile_icon_1693439512454.gif",
-                "weight": 20
+                "weight": 45
             },
             {
                 "name": "Aviator",
@@ -59,7 +59,7 @@
             {
                 "name": "Fortune Ox",
                 "image": "https://cmsbetconstruct.com/content/images/casino/icon3/116d28508566a76905628411a821c164_casinoGameIcon3.webp",
-                "weight": 3
+                "weight": 13
             },
             {
                 "name": "Fortune Rabbit",
@@ -84,6 +84,11 @@
         "image": "https://i.postimg.cc/nc2ZW1g2/pragmatic.webp",
         "games": [
             {
+                "name": "Big Bass",
+                "image": "https://cmsbetconstruct.com/content/images/casino/icon3/c79b007e577f8f015501c933a2255140_casinoGameIcon3.gif",
+                "weight": 20
+            },
+            {
                 "name": "Spaceman",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/1301_pragmatic_desktop_mobile_icon_1690555768698.gif",
                 "weight": 5
@@ -102,11 +107,6 @@
                 "name": "Zeus vs Hades: God of War",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/vs15godsofwar_pragmatic_desktop_mobile_icon_1690555801353.gif",
                 "weight": 4
-            },
-            {
-                "name": "Big Bass",
-                "image": "https://cmsbetconstruct.com/content/images/casino/icon3/c79b007e577f8f015501c933a2255140_casinoGameIcon3.gif",
-                "weight": 3
             },
             {
                 "name": "Candy Blitz",

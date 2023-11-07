@@ -1,5 +1,10 @@
 body{
     background: #000511;
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
+body::-webkit-scrollbar {
+    display: none;
 }
 .none {
     opacity: 0;
