@@ -14,7 +14,6 @@ import { Scrollbar } from "../scrollbar/scrollbar";
 
 export function Frustrar({ data, vipAccess }) {
 
-    console.log(data)
     const navigate = useNavigate();
 
     const [quality, setQuality] = useState('normal');
@@ -153,7 +152,7 @@ export function Frustrar({ data, vipAccess }) {
                     <Terminal house={data.houseName} supplier={data.supplierName} game={data.name} />
                 )}
             </div>
-            <iframe src={data==null? '' : data.link} frameBorder="0" id="iframe"></iframe>
-        </div>
+{/*             <iframe src={data==null? '' : data.link} frameBorder="0" id="iframe"></iframe>
+ */}        </div>
     );
 }

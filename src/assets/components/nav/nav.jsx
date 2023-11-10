@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 export function Nav({ vipAccess }) {
 
     useEffect(() => {
-        console.log(vipAccess)
     }, [vipAccess])
 
 

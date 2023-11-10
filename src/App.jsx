@@ -17,6 +17,8 @@ import { FornecedorCard } from './assets/pages/suppliers';
 import Modal from './assets/components/modal/modal';
 import { Nav } from './assets/components/nav/nav';
 import { ScrollToTop } from './assets/utils/scrollToTop';
+import { GetSignals } from './assets/components/signals/signals';
+import { Notis } from './assets/components/notification/notis';
 
 
 
@@ -170,16 +172,25 @@ function App() {
   }, []);
 
 
-  useEffect(() => {
-    console.log(vipAccess)
-  }, [vipAccess])
+const [signalMsg, setSignalMsg] = useState('');
+const x = GetSignals({ game: loaded ? selectedGame : '', setSignalMsg });
+
+useEffect(() => {
+  if (loaded) {
+    console.log(x)
+  }
+}, [selectedGame, loaded]);
+
 
   return (
     <>
 
       <Router>
+        <GetSignals game={loaded ? selectedGame : ''}/>
+
         <Modal isOpen={showModal} setShowModal={setShowModal} title={'Random'} content={'Xddd'} />
         <Nav vipAccess={vipAccess}/>
+        <Notis data={suppliersData}/>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse}
@@ -188,7 +199,7 @@ function App() {
           <Route path="/verberat" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse}
             currentSupplier={currentSupplier} setCurrentSupplier={setCurrentSupplier} hasNavigatedAway={hasNavigatedAway} vipAccess={true} setVipAccess={setVipAccess}
           /> : ''} />
-          <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : ''} setSGame={setSGame} hasNavigatedAway={hasNavigatedAway} vipAccess={vipAccess}/>} />
+          <Route path="/frustrar" element={<Frustrar data={loaded ? selectedGame : null} setSGame={setSGame} hasNavigatedAway={hasNavigatedAway} vipAccess={vipAccess}/>} />
           <Route path="/modal" element={<Modal />} />
         </Routes>
       </Router>
@@ -197,5 +208,5 @@ function App() {
   );
 
 }
-
+ 
 export default App;
