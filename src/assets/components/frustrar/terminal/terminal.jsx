@@ -111,7 +111,10 @@ export function Terminal({ house, supplier, game }) {
       {successVisible && (
         <div className={`success-overlay ${successVisible ? 'show-success' : ''}`}>
           <div className="success-content">
+            <p className={`Time-Left ${hideClasses ? 'hidden' : ''}`}>um novo sinal sera gerado em: </p>
+            <Timer hideClassesCallback={hideClassesCallback} />
             <span dangerouslySetInnerHTML={currentTask >= 8 ? { __html: x } : ''}></span>
+            <a href='#iframe'><button className={`sucess-button ${hideClasses ? 'hidden' : ''}`}>Jogar Agora</button></a>
           </div>
         </div>
       )}
