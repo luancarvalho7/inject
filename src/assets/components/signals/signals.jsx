@@ -1,10 +1,12 @@
 import seedrandom from "seedrandom";
 
-export const GetSignals = ({ game, setSignalMsg }) => {
+export const GetSignals = ({ game, round }) => {
 
 
     const gameName = (typeof game == "object" && game != null ? game.name : "x")
-    const seed = `${game}`
+    const seed = `${game}${round}`
+
+    console.log(seed)
     const rng = seedrandom(seed)
 
     const getCrashSignal = (mode = 0) => {
@@ -26,7 +28,7 @@ export const GetSignals = ({ game, setSignalMsg }) => {
         };
 
         for (let i = 0; i < 3; i++) {
-            results.push(`Retirar em <strong class="greenGradientText"> ${generateNumber()}x </strong>`);
+            results.push(`Retirar em <strong class="highlighted"> ${generateNumber()}x </strong>`);
         }
 
         // 35% chance to skip a round
@@ -64,22 +66,22 @@ export const GetSignals = ({ game, setSignalMsg }) => {
         const normal = random();
         const turbo = random();
 
-        return `entrem <strong class="greenGradientText">${normal}x normal</strong>  e <strong class="greenGradientText">${turbo}x turbo</strong>  alternado`;
+        return `<strong class="highlighted">${normal}x normal</strong>  e <br/> <strong class="highlighted">${turbo}x turbo</strong>  alternado`;
     }
     const getRouletteSignal = () => {
         const signals = [
-            `Entrem no <strong class="greenGradientText"> vermelho </strong>`,
-            `Entrem no <strong class="greenGradientText"> preto </strong>`,
-            `Joguem nos <strong class="greenGradientText"> pares </strong>`,
-            `Joguem nos <strong class="greenGradientText"> ímpares </strong>`,
-            `Entrem no <strong class="greenGradientText"> 1 a 18 </strong>`,
-            `Entrem no <strong class="greenGradientText"> 19 a 36 </strong>`,
-            `Entrem na <strong class="greenGradientText"> 1ª </strong> e <strong class="greenGradientText"> 2ª </strong> coluna`,
-            `Entrem na <strong class="greenGradientText"> 1ª </strong> e <strong class="greenGradientText"> 3ª </strong> coluna`,
-            `Entrem na <strong class="greenGradientText"> 2ª </strong> e <strong class="greenGradientText"> 3ª </strong> coluna`,
-            `Entrem na <strong class="greenGradientText"> 1ª </strong> e <strong class="greenGradientText"> 2ª </strong> dúzia`,
-            `Entrem na <strong class="greenGradientText"> 1ª </strong> e <strong class="greenGradientText"> 3ª </strong> dúzia`,
-            `Entrem na <strong class="greenGradientText"> 2ª </strong> e <strong class="greenGradientText"> 3ª </strong> dúzia`,
+            `Entrem no <strong class="highlighted"> vermelho </strong>`,
+            `Entrem no <strong class="highlighted"> preto </strong>`,
+            `Joguem nos <strong class="highlighted"> pares </strong>`,
+            `Joguem nos <strong class="highlighted"> ímpares </strong>`,
+            `Entrem no <strong class="highlighted"> 1 a 18 </strong>`,
+            `Entrem no <strong class="highlighted"> 19 a 36 </strong>`,
+            `Entrem na <strong class="highlighted"> 1ª </strong> e <strong class="highlighted"> 2ª </strong> coluna`,
+            `Entrem na <strong class="highlighted"> 1ª </strong> e <strong class="highlighted"> 3ª </strong> coluna`,
+            `Entrem na <strong class="highlighted"> 2ª </strong> e <strong class="highlighted"> 3ª </strong> coluna`,
+            `Entrem na <strong class="highlighted"> 1ª </strong> e <strong class="highlighted"> 2ª </strong> dúzia`,
+            `Entrem na <strong class="highlighted"> 1ª </strong> e <strong class="highlighted"> 3ª </strong> dúzia`,
+            `Entrem na <strong class="highlighted"> 2ª </strong> e <strong class="highlighted"> 3ª </strong> dúzia`,
         ];
 
         const complements = ["1 tentativa", "2 tentativas", "3 tentativas"];
@@ -132,15 +134,8 @@ export const GetSignals = ({ game, setSignalMsg }) => {
 
 
 
-        if (game === "FortuneTiger") {
-            sinal = getFortuneSignal();
-            finalMessage = `
-        
-        Tigrinho tá pagando muitoo <br/>
-        ${sinal} <br/>
-        `
-
-
+        if (game === "Fortune Tiger") {
+            finalMessage = getFortuneSignal();
         }
 
         if (game === "Roulette") {
@@ -153,55 +148,40 @@ export const GetSignals = ({ game, setSignalMsg }) => {
 
         /*VIP GAMES*/
 
-        if (game === "FortuneRabbit") {
-            sinal = getFortuneSignal();
-            finalMessage = `
-        
-        ${sinal} <br/>
-        Coelhinho ta pagando!
-        `
-
-
+        if (game === "Fortune Rabbit") {
+            finalMessage = getFortuneSignal();
         }
 
-        if (game === "FortuneOx") {
-            sinal = getFortuneSignal();
-            finalMessage = `
-        
-        ${sinal} <br/>
-        TOURO FICOU MALUCO!
-        `
-
-
-
+        if (game === "Fortune Ox") {
+            finalMessage = getFortuneSignal();
         }
 
 
         if (game === "BacBo") {
-            sinal = getTwiceSignal(`Entre no <strong class="greenGradientText"> Azul </strong> `, `Entre no <strong class="greenGradientText">Vermelho</strong>`)
+            sinal = getTwiceSignal(`Entre no <strong class="highlighted"> Azul </strong> `, `Entre no <strong class="highlighted">Vermelho</strong>`)
             finalMessage = `Esse tá fácil! <br/>
         ${sinal} e marque o EMPATE. <br/> `
         }
         if (game === "DragonTiger") {
-            sinal = getTwiceSignal(`Aposte no <strong class="greenGradientText"> Dragão </strong> `, `Aposte no <strong class="greenGradientText">Tigre</strong>`)
+            sinal = getTwiceSignal(`Aposte no <strong class="highlighted"> Dragão </strong> `, `Aposte no <strong class="highlighted">Tigre</strong>`)
             finalMessage = `É sinalzinho que vcs querem?? <br/>
         ${sinal} e marque o EMPATE. <br/> `
         }
         if (game === "FootballStudio") {
-            sinal = getTwiceSignal(`Aposte na <strong class="greenGradientText"> Casa </strong> `, `Aposte no <strong class="greenGradientText">Visitante</strong>`)
+            sinal = getTwiceSignal(`Aposte na <strong class="highlighted"> Casa </strong> `, `Aposte no <strong class="highlighted">Visitante</strong>`)
             finalMessage = `É sinalzinho que vcs querem?? <br/>
         ${sinal} e lembra de marcar o EMPATE. <br/> `
         }
 
         if (game === "LightingDice") {
             sinal = getSquadSignal(`NÚMERO ALTO`, `NÚMERO BAIXO`, `QUALQUER DUPLO`, `QUALQUER TRIPLO`)
-            finalMessage = `Podem apostar em <strong class="greenGradientText"> ${sinal}!! </strong>`
+            finalMessage = `Podem apostar em <strong class="highlighted"> ${sinal}!! </strong>`
 
         }
 
         if (game == "NinjaCrash") {
             sinal = (Math.floor(rng() * (4 - 2) + 2))
-            finalMessage = `Entrem e façam <strong class="greenGradientText"> ${sinal} </strong>`
+            finalMessage = `Entrem e façam <strong class="highlighted"> ${sinal} </strong>`
         }
 
         return finalMessage

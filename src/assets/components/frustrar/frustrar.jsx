@@ -34,12 +34,12 @@ export function Frustrar({ data, vipAccess }) {
 
     useEffect(() => {
         if (typeof data === 'string') {
-            if(vipAccess==true){
+            if (vipAccess == true) {
 
             };
         }
         if (data == null) {
-            
+
             navigate('/');
         }
         if (data !== 'string' && data !== null) {
@@ -127,10 +127,11 @@ export function Frustrar({ data, vipAccess }) {
 
     return (
         <div className="container">
-            <Scrollbar/>
+            <Scrollbar />
             <div className="box">
-                <div className={`box-content ${showTerminal ? "none" : ""}`}>
-                    <h1 className="game-title">{data==null? '' : data.name}</h1>
+
+                {showTerminal == false && <div className={`box-content ${showTerminal ? "none" : ""}`}>
+                    <h1 className="game-title">{data == null ? '' : data.name}</h1>
                     <div className="fBarFrustrar">
                         <FrustrarProgressBar valorVariavel={newGamePercentage} quality={quality} />
                     </div>
@@ -148,12 +149,12 @@ export function Frustrar({ data, vipAccess }) {
                         </div>
                     </div>
                     <button className="frustrate-button" onClick={runFrustrar}>Frustrar Conta</button>
-                </div>
+                </div>}
                 {showTerminal && (
                     <Terminal house={data.houseName} supplier={data.supplierName} game={data.name} />
                 )}
             </div>
-            <iframe src={data==null? '' : data.link} frameBorder="0" id="iframe"></iframe>
-        </div>
+{/*             <iframe src={data==null? '' : data.link} frameBorder="0" id="iframe"></iframe>
+ */}        </div>
     );
 }

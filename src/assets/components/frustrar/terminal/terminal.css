@@ -5,7 +5,7 @@
 
     transition: all 0.5s;
     width: 100%;
-    position: absolute;
+    
 }
 
 .t-beforeanim {
@@ -19,14 +19,14 @@
 
 #terminal {
     border-radius: 10px;
-    width: 100%;
+    width: 92vw;
     box-sizing: border-box;
     min-height: 162px;
     padding: 10px 7px;
     border-radius: 6px;
     border: 2px solid #0F141F;
     background: linear-gradient(180deg, #151A27 0%, #000511 100%);
-
+    justify-self: center;
     color: #84A6FC;
 
 }
@@ -91,29 +91,32 @@
 .success-overlay {
     display: flex;
     justify-content: center;
-    transform: translateY(-207px);
     color: white;
 }
 
 .success-content {
     background: linear-gradient(92deg, #001C61 1.25%, #000511 64.76%);
     padding: 30px 50px;
+    min-width: 65vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
+    gap: 12px;
     border-radius: 14px;
 }
 
-.sc-stroke{
+.sc-stroke {
     border-radius: 14px;
     padding: 1px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 25%, #FFF 98.29%);}
+    background: linear-gradient(316deg, rgba(255, 255, 255, 0.00) 36.54%, #FFF 109.09%);
+
+}
 
 
 .success-content a {
-    width: 50%;
+    width: 100%;
 }
 
 .Sucess-sucess-overlay {
@@ -129,27 +132,87 @@
 }
 
 .success-content span {
-    font-size: 30px;
+    font-size: 35px;
     font-weight: 700;
 }
 
-.Time-Left {
-    font-size: 16px;
-    margin-top: -3px;
+.success-content h1 {
+    font-size: 18px;
+    text-align: center;
 }
+
+.success-content h1 span {
+    font-size: 18px;
+    color: limegreen;
+}
+
+.timerHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timerHolder h2 {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+
+.Time-Left {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+
+
+.signalContent {
+    display: flex;
+    justify-content: center;
+    border-radius: 7px;
+    padding: 20px;
+    background: linear-gradient(180deg, #151A27 0%, #000511 100%);
+}
+
+.signalContent span {
+    text-align: center;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 1px;
+}
+
+.signalContent span .highlighted {
+    color: #3371FF;
+
+}
+
+.fixedSC {
+    width: 120%;
+
+    border-radius: 7px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 25%, #FFF 98.29%);
+    padding: 1px;
+
+}
+
+
 
 .sucess-button {
     cursor: pointer;
-    width: 105%;
-    height: 25px;
+
+    min-height: 30px;
     border-radius: 99px;
+    margin-top: 10px;
+
+    padding: 10px 0px;
     background: radial-gradient(70.71% 70.71% at 50% 50%, #2558D3 29%, #1944AC 100%);
     box-shadow: -1px -1px 2px 0px #19367C inset, 1px 1px 0px 0px rgba(192, 193, 224, 0.20) inset, 0px 12px 50px 0px rgba(71, 113, 217, 0.44);
     font-size: 15px;
     color: white;
     font-weight: bold;
     border: 1px;
-    margin-top: 10px;
+    width: 100%;
 }
 
 .hidden {
