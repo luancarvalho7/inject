@@ -172,21 +172,10 @@ function App() {
   }, []);
 
 
-const [signalMsg, setSignalMsg] = useState('');
-const x = GetSignals({ game: loaded ? selectedGame : '', setSignalMsg });
-
-useEffect(() => {
-  if (loaded) {
-    console.log(x)
-  }
-}, [selectedGame, loaded]);
-
-
   return (
     <>
 
       <Router>
-        <GetSignals game={loaded ? selectedGame : ''}/>
         <Modal isOpen={showModal} setShowModal={setShowModal} title={'Random'} content={'Xddd'} />
         <Nav vipAccess={vipAccess}/>
         <SwiperNotis data={suppliersData}/>

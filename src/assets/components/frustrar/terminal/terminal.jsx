@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './terminal.css';
 import { Timer } from '../timer/timer';
+import { GetSignals } from '../../signals/signals';
 
 export function Terminal({ house, supplier, game }) {
 
   const [animRun, setAnimRun] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+  const [selectedGame, setSGame] = useState('')
 
   function formatString(inputString) {
     return inputString.replace(/\s+/g, '_').toLowerCase();
@@ -71,6 +74,15 @@ export function Terminal({ house, supplier, game }) {
     processTask(0);
   }, []);
 
+  const [signalMsg, setSignalMsg] = useState('');
+  const x = GetSignals({ game: loaded ? selectedGame : '', setSignalMsg });
+
+  useEffect(() => {
+    if (loaded) {
+      console.log(x)
+    }
+  }, [selectedGame, loaded]);
+
   return (
     <div id="terminalSection" className={animRun ? `t-afteranim` : `t-beforeanim`}>
       <div className="t-labels-holder">
@@ -97,12 +109,7 @@ export function Terminal({ house, supplier, game }) {
       {successVisible && (
         <div className={`success-overlay ${successVisible ? 'show-success' : ''}`}>
           <div className="success-content">
-            <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png" alt="Ícone de check" width={"55px"} />
-            <h1 className='Sucess-sucess-overlay'>Sucesso!</h1>
-            <h6 className={`Frustrated-Info ${hideClasses ? 'hidden' : ''}`}>O sistema da SPRIBE ira te identificar como um jogador "frustrado" e vai fazer com que você comece a ganhar nos próximos:</h6>
-            <Timer hideClassesCallback={hideClassesCallback} />
-            <p className={`Time-Left ${hideClasses ? 'hidden' : ''}`}>tempo restante </p>
-            <a href='#iframe'><button className={`sucess-button ${hideClasses ? 'hidden' : ''}`}>Jogar Agora</button></a>
+            <GetSignals game={loaded ? selectedGame : ''}/>
           </div>
         </div>
       )}
