@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-export function Timer({ hideClassesCallback }) {
-  const [minutes, setMinutes] = useState(Math.floor(Math.random() * (2)));
+export function Timer({ hideClassesCallback, round, setRound, game }) {
+  const [minutes, setMinutes] = useState(game=="Aviator" ? 3 : 1);
   const [seconds, setSeconds] = useState(0);
   const [timeIsUp, setTimeIsUp] = useState(false);
 
@@ -23,6 +23,7 @@ export function Timer({ hideClassesCallback }) {
         }
       }, 1000);
     } else {
+      setRound(round+1)
       setTimeIsUp(true);
       hideClassesCallback(true); // Ocultar as classes em terminal.jsx
     }
@@ -36,10 +37,10 @@ export function Timer({ hideClassesCallback }) {
     <div>
       {timeIsUp ? (
         <div>
-          <Timer hideClassesCallback={hideClassesCallback} />
+          <Timer hideClassesCallback={hideClassesCallback} round={round} setRound={setRound} game={game}  />
         </div>
       ) : (
-        <span>{`${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`}</span>
+        <span className='timerSpan'>{`${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`}</span>
       )}
     </div>
   );
