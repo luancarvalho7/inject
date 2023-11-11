@@ -98,7 +98,6 @@
 .success-content {
     background: linear-gradient(92deg, #001C61 1.25%, #000511 64.76%);
     padding: 30px 50px;
-    min-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,7 +113,7 @@
 
 
 .success-content a {
-    width: 105%;
+    width: 50%;
 }
 
 .Sucess-sucess-overlay {
@@ -135,7 +134,7 @@
 }
 
 .Time-Left {
-    font-size: 11px;
+    font-size: 16px;
     margin-top: -3px;
 }
 

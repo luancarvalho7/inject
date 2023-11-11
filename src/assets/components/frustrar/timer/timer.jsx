@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export function Timer({ hideClassesCallback }) {
-  const [minutes, setMinutes] = useState(Math.floor(Math.random() * (11 - 4 + 1)) + 4);
+  const [minutes, setMinutes] = useState(Math.floor(Math.random() * (2)));
   const [seconds, setSeconds] = useState(0);
   const [timeIsUp, setTimeIsUp] = useState(false);
 
@@ -36,10 +36,7 @@ export function Timer({ hideClassesCallback }) {
     <div>
       {timeIsUp ? (
         <div>
-          <p className='End-Info'>
-            Seu tempo acabou, retorne para a página inicial e espere no mínimo <strong>2 minutos</strong> antes de jogar no mesmo jogo.
-          </p>
-          <a href='/'><button className="sucess-button">Voltar pra Página Inicial</button></a>
+          <Timer hideClassesCallback={hideClassesCallback} />
         </div>
       ) : (
         <span>{`${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`}</span>
