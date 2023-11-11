@@ -1,20 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=Ubuntu+Mono&display=swap');
 
 
-#terminalSection{
- 
+#terminalSection {
+
     transition: all 0.5s;
     width: 100%;
     position: absolute;
 }
-.t-beforeanim{
+
+.t-beforeanim {
     transform: scale(0.1);
     opacity: 0;
 }
-.t-afteranim{
+
+.t-afteranim {
     transform: scale(1);
 }
-#terminal{
+
+#terminal {
     border-radius: 10px;
     width: 100%;
     box-sizing: border-box;
@@ -28,46 +31,55 @@
 
 }
 
-#terminal  *{
+#terminal * {
     font-family: 'Ubuntu Mono', monospace;
     font-size: 12px;
-    line-height: 18px; /* 150% */
+    line-height: 18px;
+    /* 150% */
     letter-spacing: 1px;
 }
-.t-labels-holder{
+
+.t-labels-holder {
     margin-bottom: 2px;
     width: 100%;
     justify-content: space-between;
     display: flex;
 }
 
-.tLabel{
+.tLabel {
     font-size: 8px;
     display: flex;
 }
 
-.t-grey{
+.t-grey {
     color: #7885A3;
 }
-.t-blue{
+
+.t-blue {
     color: #84A6FC;
 }
-.t-orange{
+
+.t-orange {
     color: #B77745;
 }
-.t-yellow{
+
+.t-yellow {
     color: #EECF92;
 }
-.t-green{
+
+.t-green {
     color: #7FC08F;
 }
-.t-pink{
+
+.t-pink {
     color: #CCA8FF;
 }
-.t-red{
+
+.t-red {
     color: #FC8484;
 }
-.t-white{
+
+.t-white {
     color: white;
 }
 
@@ -75,40 +87,59 @@
     display: block;
     animation: showSuccessAnimation 1s ease-in-out;
 }
-.success-overlay{
+
+.success-overlay {
     display: flex;
     justify-content: center;
     transform: translateY(-207px);
     color: white;
 }
-.success-content{
+
+.success-content {
+    background: linear-gradient(92deg, #001C61 1.25%, #000511 64.76%);
+    padding: 30px 50px;
+    min-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    border-radius: 14px;
 }
-.success-content a{
+
+.sc-stroke{
+    border-radius: 14px;
+    padding: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 25%, #FFF 98.29%);}
+
+
+.success-content a {
     width: 105%;
 }
-.Sucess-sucess-overlay{
+
+.Sucess-sucess-overlay {
     font-size: 24px;
 }
-.Frustrated-Info{
+
+.Frustrated-Info {
     max-width: 200px;
     text-align: center;
     font-size: 8px;
     color: #B4BCD0;
     padding: 5px;
 }
-.success-content span{
+
+.success-content span {
     font-size: 30px;
     font-weight: 700;
 }
-.Time-Left{
+
+.Time-Left {
     font-size: 11px;
     margin-top: -3px;
 }
-.sucess-button{
+
+.sucess-button {
     cursor: pointer;
     width: 105%;
     height: 25px;
@@ -121,10 +152,12 @@
     border: 1px;
     margin-top: 10px;
 }
-.hidden{
+
+.hidden {
     display: none;
 }
-.End-Info{
+
+.End-Info {
     max-width: 250px;
     text-align: center;
     font-size: 12px;
@@ -134,9 +167,10 @@
 
 @keyframes showSuccessAnimation {
     0% {
-      opacity: 0;
+        opacity: 0;
     }
+
     100% {
-      opacity: 1;
+        opacity: 1;
     }
 }

@@ -23,7 +23,7 @@ export function Terminal({ house, supplier, game }) {
 
   const [currentTask, setCurrentTask] = useState(0);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [successVisible, setSuccessVisible] = useState(false);
+  const [successVisible, setSuccessVisible] = useState(true);
   const [remainingTime, setRemainingTime] = useState(0);
 
   const randomTime = () => Math.floor(Math.random() * (5000 - 900 + 1) + 900);
@@ -76,7 +76,7 @@ export function Terminal({ house, supplier, game }) {
 
   const [signalMsg, setSignalMsg] = useState('');
   let x = null
-  if (currentTask >= 7 && x== null) {
+  if (currentTask >= 7 && x == null) {
     x = GetSignals({ game: game, setSignalMsg });
   }
 
@@ -110,11 +110,13 @@ export function Terminal({ house, supplier, game }) {
 
       {successVisible && (
         <div className={`success-overlay ${successVisible ? 'show-success' : ''}`}>
-          <div className="success-content">
-            <p className={`Time-Left ${hideClasses ? 'hidden' : ''}`}>um novo sinal sera gerado em: </p>
-            <Timer hideClassesCallback={hideClassesCallback} />
-            <span dangerouslySetInnerHTML={currentTask >= 8 ? { __html: x } : ''}></span>
-            <a href='#iframe'><button className={`sucess-button ${hideClasses ? 'hidden' : ''}`}>Jogar Agora</button></a>
+          <div className="sc-stroke">
+            <div className="success-content">
+              <p className={`Time-Left ${hideClasses ? 'hidden' : ''}`}>um novo sinal sera gerado em: </p>
+              <Timer hideClassesCallback={hideClassesCallback} />
+              {/*             <span dangerouslySetInnerHTML={currentTask >= 8 ? { __html: x } : ''}></span>
+ */}            <a href='#iframe'><button className={`sucess-button ${hideClasses ? 'hidden' : ''}`}>Jogar Agora</button></a>
+            </div>
           </div>
         </div>
       )}
