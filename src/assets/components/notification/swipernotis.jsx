@@ -127,7 +127,7 @@ export function SwiperNotis({ data }) {
     let randomGame = setNamesArray[Math.floor(Math.random() * setNamesArray.length)];
 
     return {
-      type: 'gift'/* chooseType() */,
+      type: chooseType(),
       name: createRandomName(index),
       value: (Math.random() * 1000),
       game: randomGame,
