@@ -24,26 +24,55 @@ const GiftIcon = () => {
 }
 
 
-export const NotiBadge = React.memo(({ type = "gift", name = "Gilmar", value = "1.230", game = "Fortune Ox", ...otherProps } ) => {
+export const NotiBadge = React.memo(({ type = "gift", name = "Gilmar", value = "1.230", game = "Fortune Ox", ...otherProps }) => {
+    const [run, setRun] = useState(false);
+    const color = (xtype) => (xtype === "gift" ? "yellow" : "blue");
 
-    const [run, setRun] = useState(false)
-    const color = (xtype) => { if (xtype == "gift") { return "yellow" } if (xtype == "pix") { return "blue" } }
+    const [currentColor, setCurrentcolor] = useState(color());
+    const [bcCurrent, setBcCurrent] = useState(null);
 
-    const [currentColor, setCurrentcolor] = useState(color())
+    useEffect(() => {
+        if (otherProps && otherProps.items && otherProps.items.length > 0) {
+            if (
+                otherProps.index !== undefined &&
+                otherProps.index >= 0 &&
+                otherProps.index < otherProps.items.length
+            ) {
+                setBcCurrent(otherProps.items[otherProps.index]);
 
+                if (bcCurrent && bcCurrent.type) {
+                    setCurrentcolor(color(bcCurrent.type));
+                } else {
+                    console.error("bcCurrent or bcCurrent.type is undefined");
+                }
+            } else {
+                console.error("Invalid index:", otherProps.index);
+            }
+        } else {
+            console.error("Invalid otherProps:", otherProps);
+        }
+    }, [otherProps, bcCurrent]);
 
-    const [bcCurrent, setBcCurrent] = useState(otherProps.items[otherProps.index])
-    useEffect(()=>{
-        
+    useEffect(() => {
+        const timeoutId = setTimeout(() => setRun(true), 20000);
 
-        setBcCurrent(otherProps.items[otherProps.index])
-        setCurrentcolor(color(bcCurrent.type))
-    }, [otherProps])
+        return () => clearTimeout(timeoutId);
+    }, []);
 
-    setTimeout(() => setRun(true), 20000)
     return (
         <div className={run ? `nRun notiBadge n-${currentColor}-stroke` : `notiBadge n-${currentColor}-stroke`}>
-            {bcCurrent.type == "gift" ? <GiftIcon /> : <PixIcon />} <h1>{bcCurrent.name} <span className='n-regular'>ganhou</span> <span className={`n-${currentColor}`}>R${type=="gift" ? Math.floor(bcCurrent.value*20) : Math.floor(bcCurrent.value)}</span> <span className='n-regular'>{bcCurrent.type == "gift" ? "no" : "de"}</span>  <span className={`n-${color()}`}>{type == "gift" ? "Sorteio" : `${game}`}</span> </h1>
+            {bcCurrent && bcCurrent.type === "gift" ? <GiftIcon /> : <PixIcon />} 
+            <h1>
+                {bcCurrent ? bcCurrent.name : "Nome Não Disponível"}{" "}
+                <span className="n-regular">ganhou</span>{" "}
+                <span className={`n-${currentColor}`}>
+                    {bcCurrent && bcCurrent.value !== null
+                        ? `R$${type === "gift" ? Math.floor(bcCurrent.value * 20) : Math.floor(bcCurrent.value)}`
+                        : "Valor Indisponível"}
+                </span>{" "}
+                <span className="n-regular">{bcCurrent && bcCurrent.type === "gift" ? "no" : "de"}</span>{" "}
+                <span className={`n-${color()}`}>{type === "gift" ? "Sorteio" : `${game}`}</span>{" "}
+            </h1>
         </div>
-    )
-})
+    );
+});
