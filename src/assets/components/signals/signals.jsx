@@ -5,6 +5,8 @@ export const GetSignals = ({ game, round }) => {
 
     const gameName = (typeof game == "object" && game != null ? game.name : "x")
     const seed = `${game}${round}`
+
+    console.log(seed)
     const rng = seedrandom(seed)
 
     const getCrashSignal = (mode = 0) => {
@@ -64,7 +66,7 @@ export const GetSignals = ({ game, round }) => {
         const normal = random();
         const turbo = random();
 
-        return `entrem <strong class="highlighted">${normal}x normal</strong>  e <strong class="highlighted">${turbo}x turbo</strong>  alternado`;
+        return `<strong class="highlighted">${normal}x normal</strong>  e <br/> <strong class="highlighted">${turbo}x turbo</strong>  alternado`;
     }
     const getRouletteSignal = () => {
         const signals = [
@@ -132,15 +134,8 @@ export const GetSignals = ({ game, round }) => {
 
 
 
-        if (game === "FortuneTiger") {
-            sinal = getFortuneSignal();
-            finalMessage = `
-        
-        Tigrinho tá pagando muitoo <br/>
-        ${sinal} <br/>
-        `
-
-
+        if (game === "Fortune Tiger") {
+            finalMessage = getFortuneSignal();
         }
 
         if (game === "Roulette") {
@@ -153,27 +148,12 @@ export const GetSignals = ({ game, round }) => {
 
         /*VIP GAMES*/
 
-        if (game === "FortuneRabbit") {
-            sinal = getFortuneSignal();
-            finalMessage = `
-        
-        ${sinal} <br/>
-        Coelhinho ta pagando!
-        `
-
-
+        if (game === "Fortune Rabbit") {
+            finalMessage = getFortuneSignal();
         }
 
-        if (game === "FortuneOx") {
-            sinal = getFortuneSignal();
-            finalMessage = `
-        
-        ${sinal} <br/>
-        TOURO FICOU MALUCO!
-        `
-
-
-
+        if (game === "Fortune Ox") {
+            finalMessage = getFortuneSignal();
         }
 
 
