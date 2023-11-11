@@ -6,9 +6,15 @@ import { Autoplay, Manipulation } from "swiper/modules";
 import "swiper/css";
 
 export function SwiperNotis({ data }) {
-  const currentHour = new Date().getHours()
 
-  const mgames = () => (currentHour >= 6 && currentHour <= 21)? data.map(x => x.game) : data.filter(x => x.vip).map(x => x.game) 
+
+  let setNamesArray = [];
+
+  
+  data.map(c => c.games.map(c => {
+    setNamesArray.push(c.name)
+}))
+
 
 
   const names = [
@@ -103,13 +109,9 @@ export function SwiperNotis({ data }) {
 
   useEffect(() => {
 
-    let setNamesArray = [];
 
-    if (currentHour >= 6 && currentHour <= 21) {
-      setNamesArray = data.map(x => x.game);
-    } else {
-      setNamesArray = data.filter(x => x.vip).map(x => x.game);
-    }
+
+    console.log(setNamesArray)
 
     setGamesA(setNamesArray);
 
@@ -122,10 +124,10 @@ export function SwiperNotis({ data }) {
 
   const [fudido, setFudido] = useState(gamesA[Math.floor(Math.random() * gamesA.length)])
   const generateBadgeData = (index, games) => {
-    let randomGame = mgames()[Math.floor(Math.random() * mgames().length)];
+    let randomGame = setNamesArray[Math.floor(Math.random() * setNamesArray.length)];
 
     return {
-      type: chooseType(),
+      type: 'gift'/* chooseType() */,
       name: createRandomName(index),
       value: (Math.random() * 1000),
       game: randomGame,

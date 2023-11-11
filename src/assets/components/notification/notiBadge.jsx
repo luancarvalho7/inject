@@ -26,7 +26,11 @@ const GiftIcon = () => {
 
 export const NotiBadge = React.memo(({ type = "gift", name = "Gilmar", value = "1.230", game = "Fortune Ox", ...otherProps }) => {
     const [run, setRun] = useState(false);
-    const color = (xtype) => (xtype === "gift" ? "yellow" : "blue");
+
+    const color = (type) => {
+        
+        return (type === "gift" ? "yellow" : "blue")
+    };
 
     const [currentColor, setCurrentcolor] = useState(color());
     const [bcCurrent, setBcCurrent] = useState(null);
@@ -40,10 +44,11 @@ export const NotiBadge = React.memo(({ type = "gift", name = "Gilmar", value = "
             ) {
                 setBcCurrent(otherProps.items[otherProps.index]);
 
-                if (bcCurrent && bcCurrent.type) {
+                if (bcCurrent != null) {
+
+                    console.log(bcCurrent.type)
+
                     setCurrentcolor(color(bcCurrent.type));
-                } else {
-                    console.error("bcCurrent or bcCurrent.type is undefined");
                 }
             } else {
                 console.error("Invalid index:", otherProps.index);
@@ -61,7 +66,7 @@ export const NotiBadge = React.memo(({ type = "gift", name = "Gilmar", value = "
 
     return (
         <div className={run ? `nRun notiBadge n-${currentColor}-stroke` : `notiBadge n-${currentColor}-stroke`}>
-            {bcCurrent && bcCurrent.type === "gift" ? <GiftIcon /> : <PixIcon />} 
+            {bcCurrent && bcCurrent.type === "gift" ? <GiftIcon /> : <PixIcon />}
             <h1>
                 {bcCurrent ? bcCurrent.name : "Nome Não Disponível"}{" "}
                 <span className="n-regular">ganhou</span>{" "}

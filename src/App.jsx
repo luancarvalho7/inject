@@ -18,7 +18,7 @@ import Modal from './assets/components/modal/modal';
 import { Nav } from './assets/components/nav/nav';
 import { ScrollToTop } from './assets/utils/scrollToTop';
 import { GetSignals } from './assets/components/signals/signals';
-import { Notis } from './assets/components/notification/notis';
+import { SwiperNotis } from './assets/components/notification/swipernotis';
 
 
 
@@ -187,10 +187,10 @@ useEffect(() => {
 
       <Router>
         <GetSignals game={loaded ? selectedGame : ''}/>
-
         <Modal isOpen={showModal} setShowModal={setShowModal} title={'Random'} content={'Xddd'} />
         <Nav vipAccess={vipAccess}/>
-        <Notis data={suppliersData}/>
+        <SwiperNotis data={suppliersData}/>
+
         <ScrollToTop />
         <Routes>
           <Route path="/" element={loaded ? <Home data={housesData} setSGame={setSGame} selectedGame={selectedGame} setShowModal={setShowModal} currentHouse={currentHouse} setCurrentHouse={setCurrentHouse}
