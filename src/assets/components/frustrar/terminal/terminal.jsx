@@ -5,9 +5,8 @@ import { GetSignals } from '../../signals/signals';
 
 export function Terminal({ house, supplier, game }) {
 
+
   const [animRun, setAnimRun] = useState(false)
-  const [loaded, setLoaded] = useState(false)
-  const [selectedGame, setSGame] = useState('')
 
   function formatString(inputString) {
     return inputString.replace(/\s+/g, '_').toLowerCase();
@@ -68,20 +67,23 @@ export function Terminal({ house, supplier, game }) {
         setTimeout(() => {
           processTask(index + 1);
         }, tasks[index]);
-      } 
+      }
     }
 
     processTask(0);
   }, []);
 
+
   const [signalMsg, setSignalMsg] = useState('');
-  const x = GetSignals({ game: loaded ? selectedGame : '', setSignalMsg });
+  let x = null
+  if (currentTask >= 7 && x== null) {
+    x = GetSignals({ game: game, setSignalMsg });
+  }
 
   useEffect(() => {
-    if (loaded) {
-      console.log(x)
-    }
-  }, [selectedGame, loaded]);
+    console.log(game)
+    console.log(x)
+  }, [game]);
 
   return (
     <div id="terminalSection" className={animRun ? `t-afteranim` : `t-beforeanim`}>
@@ -109,7 +111,7 @@ export function Terminal({ house, supplier, game }) {
       {successVisible && (
         <div className={`success-overlay ${successVisible ? 'show-success' : ''}`}>
           <div className="success-content">
-            <GetSignals game={loaded ? selectedGame : ''}/>
+            <span dangerouslySetInnerHTML={currentTask >= 8 ? { __html: x } : ''}></span>
           </div>
         </div>
       )}

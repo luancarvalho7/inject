@@ -14,6 +14,7 @@ import { Scrollbar } from "../scrollbar/scrollbar";
 
 export function Frustrar({ data, vipAccess }) {
 
+
     const navigate = useNavigate();
 
     const [quality, setQuality] = useState('normal');

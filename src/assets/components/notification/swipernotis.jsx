@@ -111,7 +111,6 @@ export function SwiperNotis({ data }) {
 
 
 
-    console.log(setNamesArray)
 
     setGamesA(setNamesArray);
 

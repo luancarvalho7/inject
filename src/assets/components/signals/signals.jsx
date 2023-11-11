@@ -3,9 +3,8 @@ import seedrandom from "seedrandom";
 export const GetSignals = ({ game, setSignalMsg }) => {
 
 
-
     const gameName = (typeof game == "object" && game != null ? game.name : "x")
-    const seed = `${gameName}`
+    const seed = `${game}`
     const rng = seedrandom(seed)
 
     const getCrashSignal = (mode = 0) => {
@@ -120,7 +119,7 @@ export const GetSignals = ({ game, setSignalMsg }) => {
         let sinal
 
 
-        
+
         if (game == "Mines") {
             finalMessage = getMinesSignal(5)
 
@@ -209,6 +208,7 @@ export const GetSignals = ({ game, setSignalMsg }) => {
 
     }
 
+    console.log(loadSignals(game))
 
-    return loadSignals(gameName);
+    return loadSignals(game);
 }
