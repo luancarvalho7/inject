@@ -9,7 +9,7 @@ export const GetSignals = ({ game, round }) => {
     console.log(seed)
     const rng = seedrandom(seed)
 
-    const getCrashSignal = (mode = 0) => {
+    const getCrashSignal = (mode = 0) => { //aviator
         let results = [];
 
         const maxValues = {
@@ -38,7 +38,7 @@ export const GetSignals = ({ game, round }) => {
 
         return results.join('<br/>');
     };
-    const getMinesSignal = (quanty) => {
+    const getMinesSignal = (quanty) => { //mines
         let newGrid = Array(5).fill(Array(5).fill('🟦')); // Resetting the grid
         newGrid = JSON.parse(JSON.stringify(newGrid)); // Deep copy
         let count = 0;
@@ -60,7 +60,7 @@ export const GetSignals = ({ game, round }) => {
         const gridString = newGrid.map(row => row.join('')).join('<br/>');
         return gridString;
     };
-    const getFortuneSignal = () => {
+    const getFortuneSignal = () => { //tigrin
         const random = () => Math.floor(rng() * (10 - 3) + 3);
 
         const normal = random();
@@ -68,7 +68,7 @@ export const GetSignals = ({ game, round }) => {
 
         return `<strong class="highlighted">${normal}x normal</strong>  e <br/> <strong class="highlighted">${turbo}x turbo</strong>  alternado`;
     }
-    const getRouletteSignal = () => {
+    const getRouletteSignal = () => { //roleta
         const signals = [
             `Entrem no <strong class="highlighted"> vermelho </strong>`,
             `Entrem no <strong class="highlighted"> preto </strong>`,
@@ -92,7 +92,7 @@ export const GetSignals = ({ game, round }) => {
         return `${randomSignal}, vcs tem ${randomComplement}, não esqueçam de sempre cobrir o zero!`;
     };
 
-    const getTwiceSignal = (op1, op2) => {
+    const getTwiceSignal = (op1, op2) => { //double
         const random = () => Math.floor(rng() * 2);
 
         const twiceOptions = [op1, op2]
@@ -101,7 +101,7 @@ export const GetSignals = ({ game, round }) => {
         return twiceOptions[random()]
 
     }
-    const getSquadSignal = (op1, op2, op3, op4) => {
+    const getSquadSignal = (op1, op2, op3, op4) => { //quatro opções
         const random = () => Math.floor(rng() * 4);
 
         const squadOptions = [op1, op2, op3, op4]
@@ -138,7 +138,7 @@ export const GetSignals = ({ game, round }) => {
             finalMessage = getFortuneSignal();
         }
 
-        if (game === "Roulette") {
+        if (game === "Roleta") {
             sinal = getRouletteSignal();
             finalMessage = `${sinal} <br/>
         `

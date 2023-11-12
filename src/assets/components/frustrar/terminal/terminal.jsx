@@ -76,7 +76,7 @@ export function Terminal({ house, supplier, game }) {
 
 
   const [signalMsg, setSignalMsg] = useState('oi');
-  const [round, setRound] = useState(0)
+  const [round, setRound] = useState(Math.floor(Math.random() * 100) + 1);
   const [cGame, setCGame] = useState('pato')
 
 

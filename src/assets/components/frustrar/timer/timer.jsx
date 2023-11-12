@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export function Timer({ hideClassesCallback, round, setRound, game }) {
-  const [minutes, setMinutes] = useState(game=="Aviator" ? 3 : 1);
+  const [minutes, setMinutes] = useState(game === "Aviator" ? 3 : (game === "Roleta" ? 1 : 1));
   const [seconds, setSeconds] = useState(0);
   const [timeIsUp, setTimeIsUp] = useState(false);
 
@@ -23,7 +23,7 @@ export function Timer({ hideClassesCallback, round, setRound, game }) {
         }
       }, 1000);
     } else {
-      setRound(round+1)
+      setRound(Math.floor(Math.random() * 100) + 1)
       setTimeIsUp(true);
       hideClassesCallback(true); // Ocultar as classes em terminal.jsx
     }

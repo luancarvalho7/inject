@@ -15,9 +15,19 @@
                 "weight": 17
             },
             {
+                "name": "Roleta",
+                "image": "https://postimg.cc/sM4yP6bw",
+                "weight": 20
+            },
+            {
+                "name": "Ninja Crash",
+                "image": "https://guiadasbets.com.br/wp-content/uploads/2023/10/Galaxsys_ninjacrash-1200x900.jpg",
+                "weight": 17
+            },
+            {
                 "name": "Goal",
                 "image": "https://d1fojj4wte942r.cloudfront.net/e-games/goal_spribe_original_desktop_mobile_icon_1674045862951.webp",
-                "weight": 17
+                "weight": 3
             },
             {
                 "name": "Plinko",
